@@ -23,18 +23,19 @@ public class DemoController {
         return "demo/demo"; // skilar .jsp skrá sem er /webapp/WEB-INF/vefvidmot/demo/demo.jsp
         // skoðið application.properties til að sjá hvernig slóðin er sett
     }
-
+    // Þegar farið er inn á /demo/notandi sér þetta fall um að birta sýn
     @RequestMapping("/notandi")
     public String notandi (Model model) {
         model.addAttribute( "nafn", "nafnidmitt");
         return "demo/synaNotandi";
     }
-
+    // Þegar farið er inn á /demo/spyrjaNotanda sér þetta fall um að birta sýn
     @RequestMapping("/spyrjaNotanda")
     public String spyrjaNotandi () {
         return "demo/hvadaNotandi";
     }
 
+    // Þegar það kemur Post Request inn á slóðina /demo/hver þá sér þetta um að birta sýn
     @RequestMapping(value="/hver", method=RequestMethod.POST)
     public String hver (@RequestParam(value="nafn", required=false) String nafn, ModelMap model) {
         model.addAttribute("nafn", nafn);
