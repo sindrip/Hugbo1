@@ -10,7 +10,8 @@
 </head>
 <body>
 
-<h1>Góğan daginn ${nafn}</h1>
+<h1>Góğan daginn ${kennari.getNafn()}</h1>
+<h1>Allar upplısingar ${kennari} </h>
 
 </body>
 
