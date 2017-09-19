@@ -6,12 +6,12 @@
 <html lang="en">
 
 <head>
-    <title>Gï¿½ï¿½an daginn </title>
+    <title>HÍrslan</title>
 </head>
 <body>
 
-<h1>Gï¿½ï¿½an daginn ${kennari.getNafn()}</h1>
-<h1>Allar upplï¿½singar ${kennari} </h>
+    <h1>Öll námskeið</h1>
+    <div>${namskeid}</div>
 
 </body>
 
