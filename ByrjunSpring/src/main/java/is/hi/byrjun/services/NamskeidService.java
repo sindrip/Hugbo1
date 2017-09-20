@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface NamskeidService {
 
-    public List<Namskeid> namskeid();
+    public List<Namskeid> allNamskeid();
+
+    public List<Namskeid> searchNamskeid(String val);
 
 }

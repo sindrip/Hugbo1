@@ -13,12 +13,13 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 //
 //
 
 
-@Controller
+@RestController
 @RequestMapping("/namskeid") // Notice here that the Request Mapping is set at the Class level
 public class NamskeidController {
 
@@ -26,13 +27,25 @@ public class NamskeidController {
     NamskeidService namskeidService;
 
 
-    // GET /namskeid
+    // GET /namskeid/
     @RequestMapping("")
-    public String namskeid(Model model) {
+    public ArrayList<Namskeid> namskeid(Model model) {
         ArrayList<Namskeid> listi;
-        listi = (ArrayList<Namskeid>) namskeidService.namskeid();
-        model.addAttribute("namskeid", listi);
-        return "namskeid/namskeidsListi";
+        listi = (ArrayList<Namskeid>) namskeidService.allNamskeid();
+        return listi;
+//        model.addAttribute("namskeid", listi);
+//        model.addAttribute("pageTitle", "Öll námskeið");
+//        return "namskeid/namskeid";
     }
+//
+//    // GET /namskeid/leit
+//    @RequestMapping(value = "/leit", produces = "application/json")
+//    public String namskeid(@RequestParam(value="leit", required = true) String leit, Model model) {
+//        ArrayList<Namskeid> listi;
+//        listi = (ArrayList<Namskeid>) namskeidService.searchNamskeid(leit);
+//        model.addAttribute("namskeid", listi);
+//        model.addAttribute("pageTitle", "Leitarniðurstöður");
+//        return "namskeid/namskeid";
+//    }
 
 }
