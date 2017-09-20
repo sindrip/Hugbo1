@@ -8,6 +8,8 @@ public interface CourseService {
 
     public List<Course> allCourse();
 
+    public Course singleCourse(String langtNumer);
+
     public List<Course> searchCourse(String val);
 
 }

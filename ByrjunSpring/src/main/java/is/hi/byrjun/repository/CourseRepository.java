@@ -9,4 +9,6 @@ public interface CourseRepository {
     List<Course> getAll();
 
     void add (Course course);
+
+    Course getById(String langtNumer);
 }

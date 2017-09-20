@@ -20,6 +20,11 @@ public class CourseServiceImp implements CourseService {
     }
 
     @Override
+    public Course singleCourse(String langtNumer) {
+        return courseRep.getById(langtNumer);
+    }
+
+    @Override
     public List<Course> searchCourse(String val) {
         List<Course> listi = this.courseRep.getAll();
         ArrayList<Course> retList = new ArrayList<Course>();

@@ -30,5 +30,15 @@ public class CourseRepositoryImp implements CourseRepository {
     public void add(Course course) {
         this.course.add(course);
     }
+
+    @Override
+    public Course getById(String langtNumer) {
+        for (int i = 0; i < this.course.size(); i++) {
+            if (this.course.get(i).getLangtNumer().equals(langtNumer)) {
+                return this.course.get(i);
+            }
+        }
+        return null;
+    }
 }
 

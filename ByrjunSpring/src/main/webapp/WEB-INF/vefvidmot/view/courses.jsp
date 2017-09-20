@@ -17,10 +17,30 @@
         <script src="<c:url value="/resources/scripts/course.js" />"></script>
     </head>
 
-        <h1>${course}</h1>
+        <h1>${pageTitle}</h1>
         <div>${course}</div>
         </br>
 
+        <div class="container">
+            <form id="searchCourse" class="form-inline">
+                <div class="form-group">
+                    <input type="text" name="leit" class="form-control" aria-describedby="searchCourse" placeholder="Leita">
+                </div>
+                <div class="form-group">
+                    <button type="submit" id="leitaBtn" class="btn btn-default">Leita!</button>
+                </div>
+            </form>
+
+            <table class="table table-hover" id="courseTable">
+                <thead>
+                <tr>
+                    <th>Nafn</th>
+                    <th>Númer</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
 
     </body>
 
