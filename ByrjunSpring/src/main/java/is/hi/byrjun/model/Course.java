@@ -1,14 +1,16 @@
 package is.hi.byrjun.model;
 
-public class Namskeid {
+public class Course {
 
     private String nafn;
     private String numer;
+    private String langtNumer;
 
 
-    public Namskeid(String nafn, String numer) {
+    public Course(String langtNumer, String numer, String nafn) {
         this.setNafn(nafn);
         this.setNumer(numer);
+        this.setLangtNumer(langtNumer);
     }
 
     public String getNafn() {
@@ -27,10 +29,19 @@ public class Namskeid {
         this.numer = numer;
     }
 
+    public String getLangtNumer() {
+        return langtNumer;
+    }
+
+    public void setLangtNumer(String langtNumer) {
+        this.langtNumer = langtNumer;
+    }
+
     @Override
     public String toString() {
         return String.format("<BR>" + "Nafn: " + nafn + "<BR>"
                 + "Námskeiðsnúmer: " + numer);
     }
+
 
 }
