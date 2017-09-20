@@ -6,6 +6,14 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author Sindri Pétur Ingimundarson, Ketill Guðmundsson, Björn Guðmundsson, Ævar Aðalsteinsson
+ * @date september 2017 HBV501G Hugbúnaðarverkefni 1 Háskóli Íslands
+ *
+ * Safn af Courses (námskeiðum)
+ */
+
 @Repository
 public class CourseRepositoryImp implements CourseRepository {
     private final List<Course> course;

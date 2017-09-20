@@ -1,5 +1,13 @@
 package is.hi.byrjun.model;
 
+/**
+ *
+ * @author Sindri Pétur Ingimundarson, Ketill Guðmundsson, Björn Guðmundsson, Ævar Aðalsteinsson
+ * @date september 2017 HBV501G Hugbúnaðarverkefni 1 Háskóli Íslands
+ *
+ * Course klasinn inniheldur, nafn, námskeiðsnúmer og langt námskeiðsnúmer
+ */
+
 public class Course {
 
     private String nafn;

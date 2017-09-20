@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 let Namskeid = (() => {
+    // Listi af Course geymdur í minni
     let courseList = {};
 
     let init = () => {
@@ -11,6 +12,7 @@ let Namskeid = (() => {
         getCourse();
     };
 
+    // Sækir öll course frá APA
     let getCourse = () => {
       const url = document.location.origin + '/api/namskeid';
 
@@ -28,6 +30,7 @@ let Namskeid = (() => {
       });
     };
 
+    // Setur Course úr minni inn í DOMið
     let courseToDom = () => {
       const courseTable = $('#courseTable tbody');
 
@@ -47,6 +50,7 @@ let Namskeid = (() => {
       courseTable.html(tableHtml);
     };
 
+    // Event handlerar
     let bindHandlers = () => {
       $('#searchCourse').on('submit', function(e) {
         e.preventDefault();
@@ -64,6 +68,7 @@ let Namskeid = (() => {
       });
     };
 
+    // Kallar á bakenda til að leita eftir leitarstreng
     let searchCourseHandler = (val) => {
       const url = document.location.origin + '/api/namskeid/leit?' + val;
 
@@ -80,10 +85,6 @@ let Namskeid = (() => {
         }
       });
     };
-
-
-
-
 
     return {
         init,
