@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>HÍrslan</title>
+        <title>Hï¿½rslan</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
         <link rel="stylesheet" href="<c:url value="/resources/styles/default.css" />">
 
@@ -16,20 +16,31 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
         <script src="<c:url value="/resources/scripts/namskeid.js" />"></script>
     </head>
-    <body>
 
         <h1>${pageTitle}</h1>
         <div>${namskeid}</div>
+        </br>
 
-        <form class="form-inline">
-            <div class="form-group">
-                <input type="text" class="form-control" aria-describedby="leitaNamskeid" placeholder="Leita">
-            </div>
-            <div class="form-group">
-                <button type="submit" id="leitaBtn" class="btn btn-default">Leita!</button>
-            </div>
-        </form>
+        <div class="container">
+            <form class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control" aria-describedby="leitaNamskeid" placeholder="Leita">
+                </div>
+                <div class="form-group">
+                    <button type="submit" id="leitaBtn" class="btn btn-default">Leita!</button>
+                </div>
+            </form>
 
+                <table class="table table-hover" id="namskeidTable">
+                      <thead>
+                         <tr>
+                             <th>Nafn</th>
+                             <th>NÃºmer</th>
+                         </tr>
+                      </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
 
     </body>
 
