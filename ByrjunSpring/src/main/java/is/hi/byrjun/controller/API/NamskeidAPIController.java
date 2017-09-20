@@ -1,8 +1,10 @@
-package is.hi.byrjun.controller;
+package is.hi.byrjun.controller.API;
 
 import is.hi.byrjun.model.Kennari;
 import is.hi.byrjun.model.Namskeid;
 import is.hi.byrjun.services.DaginnService;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import is.hi.byrjun.services.NamskeidService;
@@ -20,8 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/namskeid") // Notice here that the Request Mapping is set at the Class level
-public class NamskeidController {
+@RequestMapping("/api/namskeid") // Notice here that the Request Mapping is set at the Class level
+public class NamskeidAPIController {
 
     @Autowired
     NamskeidService namskeidService;
@@ -29,7 +31,7 @@ public class NamskeidController {
 
     // GET /namskeid/
     @RequestMapping("")
-    public ArrayList<Namskeid> namskeid(Model model) {
+    public ArrayList<Namskeid> namskeid() {
         ArrayList<Namskeid> listi;
         listi = (ArrayList<Namskeid>) namskeidService.allNamskeid();
         return listi;
@@ -37,15 +39,16 @@ public class NamskeidController {
 //        model.addAttribute("pageTitle", "Öll námskeið");
 //        return "namskeid/namskeid";
     }
-//
-//    // GET /namskeid/leit
-//    @RequestMapping(value = "/leit", produces = "application/json")
-//    public String namskeid(@RequestParam(value="leit", required = true) String leit, Model model) {
-//        ArrayList<Namskeid> listi;
-//        listi = (ArrayList<Namskeid>) namskeidService.searchNamskeid(leit);
+
+    // GET /namskeid/leit
+    @RequestMapping(value = "/leit")
+    public ArrayList<Namskeid> namskeidLeit(@RequestParam(value="leit", required = true) String leit) {
+        ArrayList<Namskeid> listi;
+        listi = (ArrayList<Namskeid>) namskeidService.searchNamskeid(leit);
+        return listi;
 //        model.addAttribute("namskeid", listi);
 //        model.addAttribute("pageTitle", "Leitarniðurstöður");
 //        return "namskeid/namskeid";
-//    }
+    }
 
 }
