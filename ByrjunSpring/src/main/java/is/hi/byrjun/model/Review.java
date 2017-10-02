@@ -23,7 +23,7 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name="Reviews")
+@Table(name="Review")
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
