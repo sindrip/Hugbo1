@@ -1,3 +1,4 @@
+<%@ page import="java.util.Random" %>
 <!DOCTYPE html>
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -31,8 +32,21 @@
                         <h4 class="card-title"><c:out value="${course.nafn}"/></h4>
                         <h6 class="card-subtitle mb-2 text-muted"><c:out value="${course.numer}"/></h6>
                         <p class="card-text">Lýsing á námskeiði hér</p>
+                        <%
+                            String col;
+                            Random r = new Random();
+                            int rand = r.nextInt(5-1) + 1;
+                            if (rand > 3) {
+                                col = "green";
+                            } else if (rand > 1) {
+                                col = "yellow";
+                            } else {
+                                col = "red";
+                            }
+
+                        %>
                         <a href="#" class="btn btn-default stat-item">
-                            <i class="fa fa-star icon"></i>10
+                            <i class="fa fa-star icon" style="color:<%= col %>;"></i>10
                         </a>
                     </div>
                 </div>
