@@ -28,13 +28,6 @@ public class Course {
     private String nafn;
     private String numer;
 
-
-    public Course(String langtNumer, String numer, String nafn) throws ParseException {
-        this.setNafn(nafn);
-        this.setNumer(numer);
-        this.setLangtNumer(langtNumer);
-    }
-
     public String getNafn() {
         return nafn;
     }
