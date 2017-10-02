@@ -21,17 +21,17 @@ public class CourseServiceImp implements CourseService {
 
     @Override
     public List<Course> allCourse() {
-        return courseRep.getAll();
+        return courseRep.findAll();
     }
 
     @Override
     public Course singleCourse(String langtNumer) {
-        return courseRep.getById(langtNumer);
+        return courseRep.findByLangtNumer(langtNumer);
     }
 
     @Override
     public List<Course> searchCourse(String val) {
-        List<Course> listi = this.courseRep.getAll();
+        List<Course> listi = this.courseRep.findAll();
         ArrayList<Course> retList = new ArrayList<Course>();
         for (int i = 0; i < listi.size(); i++) {
             if (listi.get(i).getNafn().toLowerCase().contains(val.toLowerCase())) {
