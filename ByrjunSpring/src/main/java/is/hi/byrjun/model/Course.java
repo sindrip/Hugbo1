@@ -20,7 +20,7 @@ import javax.persistence.Table;
  * Course klasinn inniheldur, nafn, námskeiðsnúmer og langt námskeiðsnúmer
  */
 @Entity
-@Table (name = "Courses")
+@Table (name = "Course")
 public class Course {
 
     @Id
@@ -29,7 +29,7 @@ public class Course {
     private String numer;
 
 
-    public Course(String langtNumer, String numer, String nafn) {
+    public Course(String langtNumer, String numer, String nafn) throws ParseException {
         this.setNafn(nafn);
         this.setNumer(numer);
         this.setLangtNumer(langtNumer);
