@@ -24,7 +24,6 @@ import javax.persistence.Table;
 public class Course {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String langtNumer;
     private String nafn;
     private String numer;
