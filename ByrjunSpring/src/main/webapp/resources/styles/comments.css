@@ -1,9 +1,13 @@
+header {
+    margin-bottom: 30px;
+}
+.card-header {
+    box-shadow: rgba(0, 0, 0, 0.3) 7px 7px 7px 0px;
+}
 .comment {
     margin-top: 15px;
 }
 .comment-form{
-    min-width: 550px;
-    width: 25%;
 }
 .stats > a {
     color: black;

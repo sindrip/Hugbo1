@@ -21,61 +21,73 @@
     <body>
         <header>
             <a href="/namskeid/">Til baka</a>
-            <h1>${course}</h1>
-            <h2>Meðaleinkunn: <span class="average-grade">4.6</span></h2>
+            <!--h1>${course}</h1-->
+            <!--h2>Meðaleinkunn: <span class="average-grade">4.6</span></h2-->
         </header>
         <main>
-            <div>
-                <table>
-                <c:forEach items="${review}" var="reviews">
-                    <div class="row comment">
-                        <div class="col-sm-8">
-                            <div class="panel panel-white post panel-shadow">
-                                <div class="post-heading">
-                                    <div class="pull-left meta">
-                                        <div class="title h5">
-                                            <a href="#"><b><c:out value="${reviews.author}"/></b></a>
-                                            skrifaði ummæli.
+            <div class="container">
+                <div class="card card-header col-sm-8">
+                    <div class="card-block">
+                        <h4 class="card-title"><c:out value="${course.nafn}"/></h4>
+                        <h6 class="card-subtitle mb-2 text-muted"><c:out value="${course.numer}"/></h6>
+                        <p class="card-text">Lýsing á námskeiði hér</p>
+                        <a href="#" class="btn btn-default stat-item">
+                            <i class="fa fa-star icon"></i>10
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <table>
+                    <c:forEach items="${review}" var="reviews">
+                        <div class="row comment">
+                            <div class="col-sm-8">
+                                <div class="panel panel-white post panel-shadow">
+                                    <div class="post-heading">
+                                        <div class="pull-left meta">
+                                            <div class="title h5">
+                                                <a href="#"><b><c:out value="${reviews.author}"/></b></a>
+                                                skrifaði ummæli.
+                                            </div>
+                                            <h6 class="text-muted time"><c:out value="${reviews.createdOn}"/></h6>
                                         </div>
-                                        <h6 class="text-muted time"><c:out value="${reviews.createdOn}"/></h6>
                                     </div>
-                                </div>
-                                <div class="post-description">
-                                    <p><c:out value="${reviews.mainText}"/></p>
-                                    <div class="stats">
-                                        <a href="#" class="btn btn-default stat-item">
-                                            <i class="fa fa-star icon"></i><c:out value="${reviews.rating}"/>
-                                        </a>
+                                    <div class="post-description">
+                                        <p><c:out value="${reviews.mainText}"/></p>
+                                        <div class="stats">
+                                            <a href="#" class="btn btn-default stat-item">
+                                                <i class="fa fa-star icon"></i><c:out value="${reviews.rating}"/>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </c:forEach>
+                    </table>
+                </div>
+                </br>
+                <form class="comment-form col-sm-8">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">HÍ póstur</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                     </div>
-                </c:forEach>
-                </table>
+                    <div class="form-group">
+                        <label for="exampleSelect1">Einkunn</label>
+                        <select class="form-control" id="exampleSelect1">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleTextarea">Ummæli</label>
+                        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
-            </br>
-            <form class="comment-form">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">HÍ póstur</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                    <label for="exampleSelect1">Einkunn</label>
-                    <select class="form-control" id="exampleSelect1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="exampleTextarea">Ummæli</label>
-                    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
         </main>
     </body>
 
