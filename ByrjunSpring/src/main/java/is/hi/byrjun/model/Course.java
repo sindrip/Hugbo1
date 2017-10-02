@@ -1,5 +1,17 @@
 package is.hi.byrjun.model;
 
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Sindri Pétur Ingimundarson, Ketill Guðmundsson, Björn Guðmundsson, Ævar Aðalsteinsson
@@ -7,19 +19,14 @@ package is.hi.byrjun.model;
  *
  * Course klasinn inniheldur, nafn, námskeiðsnúmer og langt námskeiðsnúmer
  */
-
+@Entity
+@Table (name = "Course")
 public class Course {
 
+    @Id
+    private String langtNumer;
     private String nafn;
     private String numer;
-    private String langtNumer;
-
-
-    public Course(String langtNumer, String numer, String nafn) {
-        this.setNafn(nafn);
-        this.setNumer(numer);
-        this.setLangtNumer(langtNumer);
-    }
 
     public String getNafn() {
         return nafn;
