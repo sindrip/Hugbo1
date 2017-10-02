@@ -80,7 +80,7 @@
                     </table>
                 </div>
                 </br>
-                <form class="comment-form col-sm-8" method="get" action=".">
+                <form class="comment-form col-sm-8" method="post">
                     <div class="form-group">
                         <label for="exampleInputEmail1">HÍ póstur</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="nemandi@hi.is">
