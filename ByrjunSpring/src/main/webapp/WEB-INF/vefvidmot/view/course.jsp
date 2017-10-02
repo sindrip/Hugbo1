@@ -83,7 +83,7 @@
                 <form class="comment-form col-sm-8">
                     <div class="form-group">
                         <label for="exampleInputEmail1">HÍ póstur</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="nemandi@hi.is">
                     </div>
                     <div class="form-group">
                         <label for="exampleSelect1">Einkunn</label>
@@ -92,7 +92,7 @@
                             <option>2</option>
                             <option>3</option>
                             <option>4</option>
-                            <option>5</option>
+                            <option selected>5</option>
                         </select>
                     </div>
                     <div class="form-group">
