@@ -2,6 +2,18 @@ package is.hi.byrjun.model;
 
 import java.util.Date;
 
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Sindri Pétur Ingimundarson, Ketill Guðmundsson, Björn Guðmundsson, Ævar Aðalsteinsson
@@ -10,7 +22,9 @@ import java.util.Date;
  * Review klasinn inniheldur, nafn, námskeiðsnúmer og langt námskeiðsnúmer
  */
 
+
 public class Review {
+
 
     private String langtNumer;
     private Integer rating;
