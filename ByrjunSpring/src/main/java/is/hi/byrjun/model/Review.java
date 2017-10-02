@@ -22,10 +22,12 @@ import javax.persistence.Table;
  * Review klasinn inniheldur, nafn, námskeiðsnúmer og langt námskeiðsnúmer
  */
 
-
+@Entity
+@Table(name="Reviews")
 public class Review {
-
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String langtNumer;
     private Integer rating;
     private String author;
