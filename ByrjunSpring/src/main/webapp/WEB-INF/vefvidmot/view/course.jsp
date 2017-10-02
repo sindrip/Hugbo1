@@ -19,6 +19,7 @@
 
         <h1>${course}</h1>
         <div>${course}</div>
+        <div>${review}</div>
         </br>
 
 

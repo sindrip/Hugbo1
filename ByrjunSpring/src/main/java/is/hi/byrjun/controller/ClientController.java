@@ -1,6 +1,7 @@
 package is.hi.byrjun.controller;
 
 import is.hi.byrjun.services.CourseService;
+import is.hi.byrjun.services.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +24,8 @@ public class ClientController {
 
     @Autowired
     CourseService courseService;
+    @Autowired
+    ReviewService reviewService;
 
     /**
      * Birtir lista af námskeiðum
@@ -49,6 +52,7 @@ public class ClientController {
     @RequestMapping(value="namskeid/{id}")
     public String namskeidId(@PathVariable("id") String langtNumer, Model model) {
         model.addAttribute("course", courseService.singleCourse(langtNumer));
+        model.addAttribute("review", reviewService.getReviewsForCourse(langtNumer));
         return "view/course";
     }
 
