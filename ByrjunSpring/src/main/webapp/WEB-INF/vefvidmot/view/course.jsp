@@ -46,7 +46,7 @@
 
                         %>
                         <a href="#" class="btn btn-default stat-item">
-                            <i class="fa fa-star icon" style="color:<%= col %>;"></i>10
+                            <i class="fa fa-star icon" style="color:<%= col %>;"></i><%= rand %>
                         </a>
                     </div>
                 </div>
