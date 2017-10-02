@@ -23,6 +23,7 @@ public class ReviewRepositoryImp implements ReviewRepository {
         this.review = new ArrayList<Review>();
         this.review.add( new Review("5051IÐN101G20176",5,"Ketill", new Date(),"Þetta er mjög flott"));
         this.review.add( new Review("5051IÐN101G20176",3,"Sindri", new Date(),"Fínn áfangi"));
+        this.review.add( new Review("5051IÐN101G20176",1,"Björn", new Date(), "Hjálp, ég er ekkert í þessum áfanga"));
 
     }
 
