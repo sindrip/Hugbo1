@@ -31,7 +31,7 @@
                     <div class="card-block">
                         <h4 class="card-title"><c:out value="${course.nafn}"/></h4>
                         <h6 class="card-subtitle mb-2 text-muted"><c:out value="${course.numer}"/></h6>
-                        <p class="card-text">Lýsing á námskeiði hér</p>
+                        <p class="card-text">Lýsing á námskeiði hér.</p>
                         <%
                             String col;
                             Random r = new Random();
