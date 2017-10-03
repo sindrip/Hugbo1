@@ -16,5 +16,5 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
     /*
         Bætir við ummælum um kúrs
      */
-    //Review save (Review review);
+    Review save (Review review);
 }

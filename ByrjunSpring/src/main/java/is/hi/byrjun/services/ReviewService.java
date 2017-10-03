@@ -10,5 +10,5 @@ import java.util.List;
 public interface ReviewService {
     public List<Review> getReviewsForCourse(String longNumber);
 
-    //public Review save(Review review);
+    public Review save(Review review);
 }
