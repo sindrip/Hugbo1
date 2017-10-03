@@ -18,7 +18,7 @@ let bindHandlers = () => {
             author: $('#userEmail').val(),
         });
         return false;
-    });--
+    });
 };
 
 // Kallar á bakenda til að leita eftir leitarstreng
@@ -35,9 +35,11 @@ let addReviewHandler = (val) => {
             contentType: 'application/json; charset=utf-8',
         success: (res) => {
             console.log(res);
+            location.reload();
         },
         error: function() {
             console.log('ohh noooo, ajax error');
+            alert('Ekki tókst að vista ummæli');
         }
     });
 };
