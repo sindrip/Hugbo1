@@ -34,15 +34,6 @@ public class Review {
     private Date createdOn;
     private String mainText;
 
-
-    public Review(String langtNumer, Integer rating, String author, Date createdOn, String mainText) {
-        this.setLangtNumer(langtNumer);
-        this.setRating(rating);
-        this.setAuthor(author);
-        this.setCreatedOn(createdOn);
-        this.setMainText(mainText);
-    }
-
     @Override
     public String toString() {
         return String.format("Aðaltexti:" + mainText);

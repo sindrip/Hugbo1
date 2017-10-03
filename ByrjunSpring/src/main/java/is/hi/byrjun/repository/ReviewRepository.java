@@ -1,19 +1,20 @@
 package is.hi.byrjun.repository;
 
 import is.hi.byrjun.model.Review;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
 /**
  * @author Sindri Pétur Ingimundarson, Ketill Guðmundsson, Björn Guðmundsson, Ævar Aðalsteinsson
  */
-public interface ReviewRepository {
+public interface ReviewRepository extends JpaRepository<Review, Long> {
     /*
         Nær í öll review fyrir ákveðinn kúrs
      */
-    List<Review> getReviewsForCourse(String longNumber);
+    List<Review> findByLangtNumer(String langtNumer);
     /*
         Bætir við kúrs
      */
-    void add(Review review);
+    Review save (Review review);
 }

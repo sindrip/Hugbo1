@@ -19,8 +19,8 @@ public class ReviewServiceImp implements ReviewService {
     ReviewRepository reviewRep;
 
     @Override
-    public List<Review> getReviewsForCourse(String longNumber) {
-        return reviewRep.getReviewsForCourse(longNumber);
+    public List<Review> getReviewsForCourse(String langtNumer) {
+        return reviewRep.findByLangtNumer(langtNumer);
     }
 
 }
