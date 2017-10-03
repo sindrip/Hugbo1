@@ -1,9 +1,5 @@
 package is.hi.byrjun.controller.API;
 
-import is.hi.byrjun.model.Course;
-
-import java.util.ArrayList;
-
 import is.hi.byrjun.model.Review;
 import is.hi.byrjun.services.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +28,7 @@ public class ReviewAPIController {
      * @return listi JSON listi allra námskeiða
      */
     // POST api/review/course/:id
-    @RequestMapping(value = "course/{id}", method = RequestMethod.POST )
+    @RequestMapping(value = "namskeid/{id}", method = RequestMethod.POST )
     public Review saveReview(@PathVariable("id") String langtNumer, @RequestBody Review review) {
         System.out.println(review);
         Review savedReview;

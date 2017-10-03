@@ -83,11 +83,11 @@
                 <form class="comment-form col-sm-8" method="post" id="reviewForm">
                     <div class="form-group">
                         <label for="userEmail">HÍ póstur</label>
-                        <input form="reviewForm" type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="nemandi@hi.is" pattern="[a-z0-9._%+-]+@hi.is$">
+                        <input name="author" form="reviewForm" type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="nemandi@hi.is" pattern="[a-z0-9._%+-]+@hi.is$">
                     </div>
                     <div class="form-group">
                         <label for="courseGrade">Einkunn</label>
-                        <select form="reviewForm" class="form-control" id="courseGrade">
+                        <select name="rating" form="reviewForm" class="form-control" id="courseGrade">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -97,7 +97,7 @@
                     </div>
                     <div class="form-group">
                         <label for="reviewText">Ummæli</label>
-                        <textarea form="reviewForm" class="form-control" id="reviewText" rows="3" placeholder="Skildu eftir ummæli um áfangann"></textarea>
+                        <textarea name="mainText" form="reviewForm" class="form-control" id="reviewText" rows="3" placeholder="Skildu eftir ummæli um áfangann"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
