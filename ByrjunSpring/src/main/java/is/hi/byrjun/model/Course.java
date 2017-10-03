@@ -19,7 +19,7 @@ public class Course {
     private String langtNumer;
     private String nafn;
     private String numer;
-    private double averageRank;
+    private Double averageRank;
 
     public String getNafn() {
         return nafn;
