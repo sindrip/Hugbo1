@@ -16,7 +16,7 @@ import java.util.List;
  */
 
 @Repository
-public class ReviewRepositoryImp implements ReviewRepository {
+public class ReviewRepositoryImp {
     private final List<Review> review;
 
     public ReviewRepositoryImp() {
@@ -27,7 +27,6 @@ public class ReviewRepositoryImp implements ReviewRepository {
 
     }
 
-    @Override
     public List<Review> getReviewsForCourse(String longNumber) {
         List<Review> reviews = new ArrayList<Review>();
         for (int i = 0; i < review.size(); i++) {
@@ -40,8 +39,7 @@ public class ReviewRepositoryImp implements ReviewRepository {
         return reviews;
     }
 
-    @Override
-    public void add(Review review) {
+    public void save(Review review) {
         this.review.add(review);
     }
 

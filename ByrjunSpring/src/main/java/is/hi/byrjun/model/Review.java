@@ -87,4 +87,5 @@ public class Review {
     public void setMainText(String mainText) {
         this.mainText = mainText;
     }
+
 }

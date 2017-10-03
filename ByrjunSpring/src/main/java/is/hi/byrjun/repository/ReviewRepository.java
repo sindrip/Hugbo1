@@ -11,9 +11,9 @@ public interface ReviewRepository {
     /*
         Nær í öll review fyrir ákveðinn kúrs
      */
-    List<Review> getReviewsForCourse(String longNumber);
+    List<Review> findByLangtNumer (String longNumber);
     /*
-        Bætir við kúrs
+        Bætir við ummælum um kúrs
      */
-    void add(Review review);
+    Review save(Review review);
 }

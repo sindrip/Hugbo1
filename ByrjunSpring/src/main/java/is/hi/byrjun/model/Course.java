@@ -27,6 +27,7 @@ public class Course {
     private String langtNumer;
     private String nafn;
     private String numer;
+    private double averageRank;
 
     public String getNafn() {
         return nafn;
@@ -59,4 +60,11 @@ public class Course {
     }
 
 
+    public double getAverageRank() {
+        return averageRank;
+    }
+
+    public void setAverageRank(double averageRank) {
+        this.averageRank = averageRank;
+    }
 }
