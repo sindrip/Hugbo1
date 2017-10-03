@@ -34,7 +34,9 @@ public class ReviewServiceImp implements ReviewService {
         // Get list of reviews for current course
         List<Review> reviews = reviewRep.findByLangtNumer(review.getLangtNumer());
         // Calculate new average grade based on new review
-        double newGrade =  (course.getAverageRank() * reviews.size() + review.getRating()) / (reviews.size() + 1);
+        double oldRank = course.getAverageRank();
+        if(oldRank < 0) oldRank = 0;
+        double newGrade =  (oldRank * reviews.size() + review.getRating()) / (reviews.size() + 1);
         // Update the grade of the course
         course.setAverageRank(newGrade);
         courseRep.save(course);
