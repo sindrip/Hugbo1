@@ -1,5 +1,8 @@
 package is.hi.byrjun.model;
 
+import org.hibernate.annotations.ColumnDefault;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -17,9 +20,13 @@ public class Course {
 
     @Id
     private String langtNumer;
-    private String nafn;
+    private String nafn = "da";
     private String numer;
-    private Double averageRank;
+    @ColumnDefault("'-1.0'")
+    @Column(name = "averageRank")
+    private Double averageRank = -1.0;
+
+
 
     public String getNafn() {
         return nafn;
