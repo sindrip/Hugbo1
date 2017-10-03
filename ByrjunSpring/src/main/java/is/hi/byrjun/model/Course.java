@@ -1,14 +1,9 @@
 package is.hi.byrjun.model;
 
-import java.text.ParseException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Locale;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -25,8 +20,13 @@ public class Course {
 
     @Id
     private String langtNumer;
-    private String nafn;
+    private String nafn = "da";
     private String numer;
+    @ColumnDefault("'-1.0'")
+    @Column(name = "averageRank")
+    private Double averageRank = -1.0;
+
+
 
     public String getNafn() {
         return nafn;
@@ -59,4 +59,11 @@ public class Course {
     }
 
 
+    public double getAverageRank() {
+        return averageRank;
+    }
+
+    public void setAverageRank(double averageRank) {
+        this.averageRank = averageRank;
+    }
 }
