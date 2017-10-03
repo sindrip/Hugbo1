@@ -46,7 +46,7 @@
 
                         %>
                         <a href="#" class="btn btn-default stat-item">
-                            <i class="fa fa-star icon" style="color:<%= col %>;"></i><%= rand %>
+                            <i class="fa fa-star icon" style="color:<%= col %>;"></i><c:out value="${course.averageRank}"/>
                         </a>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                 <form class="comment-form col-sm-8" method="post" id="reviewForm">
                     <div class="form-group">
                         <label for="userEmail">HÍ póstur</label>
-                        <input form="reviewForm" type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="nemandi@hi.is" pattern="[a-z0-9._%+-]+@hi.is$" autofocus>
+                        <input form="reviewForm" type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="nemandi@hi.is" pattern="[a-z0-9._%+-]+@hi.is$">
                     </div>
                     <div class="form-group">
                         <label for="courseGrade">Einkunn</label>
