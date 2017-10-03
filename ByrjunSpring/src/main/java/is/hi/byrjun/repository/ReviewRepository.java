@@ -14,7 +14,7 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
      */
     List<Review> findByLangtNumer(String langtNumer);
     /*
-        Bætir við kúrs
+        Bætir við ummælum um kúrs
      */
-    Review save (Review review);
+    //Review save (Review review);
 }

@@ -1,18 +1,7 @@
 package is.hi.byrjun.model;
 
+import javax.persistence.*;
 import java.util.Date;
-
-import java.text.ParseException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Locale;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  *
@@ -78,4 +67,5 @@ public class Review {
     public void setMainText(String mainText) {
         this.mainText = mainText;
     }
+
 }

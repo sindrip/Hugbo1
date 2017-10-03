@@ -17,10 +17,27 @@ public class ReviewServiceImp implements ReviewService {
 
     @Autowired
     ReviewRepository reviewRep;
+   //@Autowired
+    //CourseRepository courseRep;
 
     @Override
     public List<Review> getReviewsForCourse(String langtNumer) {
         return reviewRep.findByLangtNumer(langtNumer);
     }
+/*
+    @Override
+    public Review save(Review review) {
+        // Get course the review is for
+        /*Course course = courseRep.findByLangtNumer(review.getLangtNumer());
+        // Get list of reviews for current course
+        List<Review> reviews = reviewRep.findByLangtNumer(review.getLangtNumer());
+        // Calculate new average grade based on new review
+        double newGrade =  (course.getAverageRank() * reviews.size() + review.getRating()) / (reviews.size() + 1);
+        // Update the grade of the course
+        course.setAverageRank(newGrade);
+        courseRep.save(course);
+        // Save the new review
+        return reviewRep.save(review);
+    }*/
 
 }
