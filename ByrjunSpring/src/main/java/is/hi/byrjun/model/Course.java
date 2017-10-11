@@ -26,8 +26,6 @@ public class Course {
     @Column(name = "averageRank")
     private Double averageRank = -1.0;
 
-
-
     public String getNafn() {
         return nafn;
     }
