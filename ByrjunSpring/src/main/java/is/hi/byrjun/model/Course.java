@@ -22,6 +22,9 @@ public class Course {
     private String langtNumer;
     private String nafn = "da";
     private String numer;
+    private int einingar;
+    private String timabil;
+    private String markhopur;
     @ColumnDefault("'-1.0'")
     @Column(name = "averageRank")
     private Double averageRank = -1.0;
