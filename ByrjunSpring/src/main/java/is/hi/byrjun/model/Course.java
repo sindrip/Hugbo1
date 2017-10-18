@@ -22,6 +22,9 @@ public class Course {
     private String langtNumer;
     private String nafn = "da";
     private String numer;
+    private int einingar;
+    private String timabil;
+    private String markhopur;
     @ColumnDefault("'-1.0'")
     @Column(name = "averageRank")
     private Double averageRank = -1.0;
@@ -63,5 +66,29 @@ public class Course {
 
     public void setAverageRank(double averageRank) {
         this.averageRank = averageRank;
+    }
+
+    public int getEiningar() {
+        return einingar;
+    }
+
+    public void setEiningar(int einingar) {
+        this.einingar = einingar;
+    }
+
+    public String getTimabil() {
+        return timabil;
+    }
+
+    public void setTimabil(String timabil) {
+        this.timabil = timabil;
+    }
+
+    public String getMarkhopur() {
+        return markhopur;
+    }
+
+    public void setMarkhopur(String markhopur) {
+        this.markhopur = markhopur;
     }
 }
