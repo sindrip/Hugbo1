@@ -1,6 +1,5 @@
 const fs = require('fs');
 const parse = require('csv-parse');
-const async = require('async');
 const request = require('request-promise-native');
 const cheerio = require('cheerio');
 
@@ -10,96 +9,69 @@ const inputFile='Namskeid_2016_2017.csv';
 
 let gogn = [];
 
-let stagger = (index, max, data) => {
-  console.log('Page start');
-  // if (index >= max) {
-  //   return;
-  // }
-  if (index >= 2) {
+var parser = parse({delimiter: ','}, async function (err, data) {
+  let index = 0;
+  const stepSize = 100;
+
+  console.log(`Stepsize: ${stepSize} \n=================`);
+  for (let i = 0; i < data.length / stepSize; i++) {
+    let t = await stepMap(stepSize, i, data);
+    console.log(i);
     console.log(gogn.length)
-    return;
   }
 
-  let dataPage = data.slice(index * 100, (index + 1) * 100);
-  console.log(dataPage.length);
-
-  Promise.all(
-    dataPage.map((line) => {
-      if (line[0] === 'Númer') {
-        return;
-      }
+  fs.writeFile('courses.json', JSON.stringify(gogn), (err) => {
+    if (err) throw err;
+    console.log('The file has been saved!');
+  });
   
-      getLongNumber(line[5]).then((langtNumer) => {
-        gogn.push({
-          numer: line[0],
-          nafn: line[1],
-          einingar: line[2],
-          misseri: line[3],
-          namsstig: line[4],
-          urL: line[5],
-          langtNumer,
-        });
-      });
-    })
-  ).then(() => {
-    console.log('Page Done')
-    setTimeout(() => {
-      stagger(index+1, max, data);    
-    }, 1000)
-  })
-
-};
-
-var parser = parse({delimiter: ','}, function (err, data) {
-
-  const pages = Math.ceil(data.length / 100);
-
-  stagger(0, pages, data);
-
-
-  // async.eachSeries(data, function (line, callback) {
-  //   if (line[0] === 'Númer') {
-  //     callback();
-  //     return;
-  //   }
-
-  //   getLongNumber(line[5]).then((langtNumer) => {
-  //     gogn.push({
-  //       numer: line[0],
-  //       nafn: line[1],
-  //       einingar: line[2],
-  //       misseri: line[3],
-  //       namsstig: line[4],
-  //       urL: line[5],
-  //       langtNumer,
-  //     });
-  //     console.log('1')  
-  //     callback();
-  //   });
-  // });
-
-
 });
 
 fs.createReadStream(inputFile).pipe(parser);
 
+let stepMap = (stepSize, index, data) => {
+  let newData = data.slice(1 + stepSize * index, 1 + stepSize * (index + 1));
+  
+  return Promise.all(
+    newData.map((elem) => {
+      return new Promise((resolve, reject) => {
+        request(elem[5]).then((html) => {
+          const longNumber = getLongNumber(html);
 
-let getLongNumber = (url) => {
-  return new Promise((resolve, reject) => {
-    request(url).then((html) => {
-      var $ = cheerio.load(html);
-      var candidateList = $('.kennsluskra_item_container')
-      let langtNumer;
-      candidateList.each(function(i,elem) {
-        if ($(this).text().includes('Langt námskeiðsnúmer')) {
-          langtNumer = $(this).text().split(':')[1];
-          return false;
-        }
-      });
-      resolve(langtNumer);
-    }).catch((e) => {
-      console.log(e)
-      reject()
-    });
-  });
+          pushToGogn(elem, longNumber);          
+
+          resolve(longNumber);
+        }).catch((e) => {
+          console.log(e);
+          reject();
+        });
+      })
+    })
+  );
 }
+
+let getLongNumber = (html) => {
+  let $ = cheerio.load(html);
+  let candidateList = $('.kennsluskra_item_container')
+  let langtNumer;
+  
+  candidateList.each(function(i,elem) {
+    if ($(this).text().includes('Langt námskeiðsnúmer')) {
+      langtNumer = $(this).text().split(':')[1];
+      return false;
+    }
+  });
+  return langtNumer;
+}
+
+let pushToGogn = (elem, langtnumer) => {
+  gogn.push({
+    langtnumer,
+    numer: elem[0].trim(),
+    nafn: elem[1].trim(),
+    einingar: elem[2].trim(),
+    kennslumisseri: elem[3].trim(),
+    namstig: elem[4].trim(),
+    url: elem[5].trim(),
+  })
+};
