@@ -1,0 +1,8 @@
+{
+  "test": {
+    "DATABASE_URL": "postgres://fylmgviu:yyX5_9E3viuEa1CyBciBltTjVo06CjVs@horton.elephantsql.com:5432/fylmgviu"
+  },
+  "development": {
+    "DATABASE_URL": "postgres://fylmgviu:yyX5_9E3viuEa1CyBciBltTjVo06CjVs@horton.elephantsql.com:5432/fylmgviu"
+  }
+}

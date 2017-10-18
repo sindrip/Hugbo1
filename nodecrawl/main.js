@@ -3,8 +3,6 @@ const parse = require('csv-parse');
 const request = require('request-promise-native');
 const cheerio = require('cheerio');
 
-const express = require('express');
-
 const inputFile='Namskeid_2016_2017.csv';
 
 let gogn = [];

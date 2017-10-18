@@ -20,14 +20,15 @@ public class Course {
 
     @Id
     private String langtNumer;
-    private String nafn = "da";
     private String numer;
-    private int einingar;
-    private String timabil;
-    private String markhopur;
+    private String nafn;
+    private double einingar;
+    private String kennslumisseri;
+    private String namsstig;
+    private String url;
     @ColumnDefault("'-1.0'")
     @Column(name = "averageRank")
-    private Double averageRank = -1.0;
+    private double averageRank = -1.0;
 
     public String getNafn() {
         return nafn;
@@ -59,7 +60,6 @@ public class Course {
                 + "Námskeiðsnúmer: " + numer);
     }
 
-
     public double getAverageRank() {
         return averageRank;
     }
@@ -68,7 +68,7 @@ public class Course {
         this.averageRank = averageRank;
     }
 
-    public int getEiningar() {
+    public double getEiningar() {
         return einingar;
     }
 
@@ -76,19 +76,23 @@ public class Course {
         this.einingar = einingar;
     }
 
-    public String getTimabil() {
-        return timabil;
+    public String getKennslumisseri() {
+        return kennslumisseri;
     }
 
-    public void setTimabil(String timabil) {
-        this.timabil = timabil;
+    public void setKennslumisseri(String kennslumisseri) {
+        this.kennslumisseri = kennslumisseri;
     }
 
-    public String getMarkhopur() {
-        return markhopur;
+    public String getNamsstig() {
+        return namsstig;
     }
 
-    public void setMarkhopur(String markhopur) {
-        this.markhopur = markhopur;
+    public void setNamsstig(String namsstig) {
+        this.namsstig = namsstig;
     }
+
+    public String getUrl() { return url; }
+
+    public void setUrl(String url) { this.url = url; }
 }
