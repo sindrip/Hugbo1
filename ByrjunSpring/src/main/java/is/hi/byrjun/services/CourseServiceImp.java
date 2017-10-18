@@ -53,9 +53,12 @@ public class CourseServiceImp implements CourseService {
         List<Course> listi = this.courseRep.findAll();
 
         return listi.stream()
-                .filter(c -> c.getNafn().contains(val.toLowerCase())
-                        || c.getNumer().contains(val.toLowerCase())
-                        || c.getNumer().contains(val.toLowerCase()))
+                .filter(c -> c.getLangtNumer().toLowerCase().contains(val.toLowerCase())
+                        || c.getNumer().toLowerCase().contains(val.toLowerCase())
+                        || c.getNafn().toLowerCase().contains(val.toLowerCase())
+                        || c.getKennslumisseri().toLowerCase().contains(val.toLowerCase())
+                        || c.getNamsstig().toLowerCase().contains(val.toLowerCase())
+                )
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 }
