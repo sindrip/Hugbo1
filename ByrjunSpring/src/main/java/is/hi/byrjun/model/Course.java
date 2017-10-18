@@ -69,4 +69,28 @@ public class Course {
     public void setAverageRank(double averageRank) {
         this.averageRank = averageRank;
     }
+
+    public int getEiningar() {
+        return einingar;
+    }
+
+    public void setEiningar(int einingar) {
+        this.einingar = einingar;
+    }
+
+    public String getTimabil() {
+        return timabil;
+    }
+
+    public void setTimabil(String timabil) {
+        this.timabil = timabil;
+    }
+
+    public String getMarkhopur() {
+        return markhopur;
+    }
+
+    public void setMarkhopur(String markhopur) {
+        this.markhopur = markhopur;
+    }
 }
