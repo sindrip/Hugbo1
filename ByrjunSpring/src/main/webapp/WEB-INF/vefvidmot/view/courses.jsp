@@ -22,6 +22,12 @@
         <div>${course}</div>
         </br>
 
+    <header>
+        <a href="/notandi/">Notandi</a>
+        <!--h1>${course}</h1-->
+        <!--h2>Meðaleinkunn: <span class="average-grade">4.6</span></h2-->
+    </header>
+
         <div class="container">
             <form id="searchCourse" class="form-inline">
                 <div class="form-group">
