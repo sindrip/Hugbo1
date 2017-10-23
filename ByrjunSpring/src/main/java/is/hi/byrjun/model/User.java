@@ -2,7 +2,6 @@ package is.hi.byrjun.model;
 
 
 import javax.persistence.*;
-import java.util.Date;
 import org.hibernate.annotations.ColumnDefault;
 
 /**
@@ -14,30 +13,38 @@ import org.hibernate.annotations.ColumnDefault;
  */
 
 @Entity
-@Table(name="Review")
+@Table (name = "User")
 public class User {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String nafn;
-    private Date createdOn;
+    private String email;
+    private String password;
     @ColumnDefault("'0'")
     @Column(name = "nrOfReviews")
     private int nrOfReviews;
 
-    public String getNafn() {
-        return nafn;
+    public String getEmail() {
+        return email;
     }
 
-    public void setNafn(String nafn) {
-        this.nafn = nafn;
+    public void setnafn(String nafn) {
+        this.email = email;
     }
 
-    public Date getCreatedOn() {
-        return createdOn;
+    public String getPassword () {
+        return password;
     }
 
-    public void setCreatedOn(Date createdOn) {
-        this.createdOn = createdOn;
+    public void setPassword(String password) {
+        this.password = password;
     }
+
+    public int getNrOfReviews() {
+        return nrOfReviews;
+    }
+
+    public void setNrOfReviews(int nrOfReviews) {
+        this.nrOfReviews = nrOfReviews;
+    }
+
 }
