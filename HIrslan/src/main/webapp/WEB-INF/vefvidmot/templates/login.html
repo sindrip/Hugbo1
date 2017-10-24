@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <object th:include="fragments/head :: head_bootstrap" th:remove="tag" />
+    </head>
+
+    <body>
+    <nav th:replace="fragments/navbar :: anonymous_navbar"></nav>
+
+    <h1>HER THARF AD BAETA INN LOGIN SIDU</h1>
+    <p>Today is: <span th:text="${userRole}">13 february 2011</span>.</p>
+
+    </body>
+</html>

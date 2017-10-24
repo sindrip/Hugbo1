@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.security.Principal;
+
 
 /**
  *
@@ -56,6 +58,21 @@ public class ClientController {
         model.addAttribute("course", courseService.singleCourse(langtNumer));
         model.addAttribute("review", reviewService.getReviewsForCourse(langtNumer));
         return "course";
+    }
+
+    @RequestMapping(value="signup")
+    public String signUp() {
+        return "signup";
+    }
+
+    @RequestMapping(value="login")
+    public String signIn(Principal principal, Model model) {
+        String userRole = "ANONYMOUS";
+        if (principal != null) {
+            userRole = "USER";
+        }
+        model.addAttribute("userRole", userRole);
+        return "login";
     }
 
 }
