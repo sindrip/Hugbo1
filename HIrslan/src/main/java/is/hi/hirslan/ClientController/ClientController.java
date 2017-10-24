@@ -39,7 +39,7 @@ public class ClientController {
         String user = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
         System.out.println(user);
 //        model.addAttribute("isAuthenticated", !user.equals("anonymousUser") );
-        return "welcome";
+        return "courses";
     }
 
     /**
@@ -55,7 +55,7 @@ public class ClientController {
     public String namskeidId(@PathVariable("id") String langtNumer, Model model) {
         model.addAttribute("course", courseService.singleCourse(langtNumer));
         model.addAttribute("review", reviewService.getReviewsForCourse(langtNumer));
-        return "view/course";
+        return "course";
     }
 
 }

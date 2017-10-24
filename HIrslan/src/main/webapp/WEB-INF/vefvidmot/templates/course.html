@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <object th:include="fragments/head :: head_bootstrap" th:remove="tag" />
+
+        <link rel="stylesheet" href="resources/styles/comments.css"/>
+        <script src="resources/scripts/courses.js"></script>
+    </head>
+
+    <body>
+        <nav th:replace="fragments/navbar :: anonymous_navbar"></nav>
+
+        <main>
+            <div class="container">
+                <div class="card card-header col-sm-8">
+                    <div class="card-block">
+                        <h4 class="card-title">course.nafn</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">course.numer</h6>
+                        <p class="card-text">Lýsing á námskeiði hér.</p>
+                        <a href="#" class="btn btn-default stat-item">
+                            <i class="fa fa-star icon"></i>course.averagerank
+                        </a>
+                    </div>
+                </div>
+                <div id="courseComment">
+                    <table>
+                            <div class="row comment">
+                                <div class="col-sm-8">
+                                    <div class="panel panel-white post panel-shadow">
+                                        <div class="post-heading">
+                                            <div class="pull-left meta">
+                                                <div class="title h5">
+                                                    <a href="#"><b>reviews.author</b></a>
+                                                    skrifaði ummæli.
+                                                </div>
+                                                <h6 class="text-muted time">reviews.createdon</h6>
+                                            </div>
+                                        </div>
+                                        <div class="post-description">
+                                            <p>reviews.maintext</p>
+                                            <div class="stats">
+                                                <a href="#" class="btn btn-default stat-item">
+                                                    <i class="fa fa-star icon"></i>reviews.rating
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </table>
+                </div>
+
+                <form class="comment-form col-sm-8" method="post" id="reviewForm">
+                    <div class="form-group">
+                        <label for="userEmail">HÍ póstur</label>
+                        <input name="author" form="reviewForm" type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="nemandi@hi.is" pattern="[a-z0-9._%+-]+@hi.is$"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="courseGrade">Einkunn</label>
+                        <select name="rating" form="reviewForm" class="form-control" id="courseGrade">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="reviewText">Ummæli</label>
+                        <textarea name="mainText" form="reviewForm" class="form-control" id="reviewText" rows="3" placeholder="Skildu eftir ummæli um áfangann"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </main>
+
+    </body>
+</html>
