@@ -38,7 +38,7 @@ public class ClientController {
     public String namskeid(Model model) {
         String user = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
         System.out.println(user);
-//        model.addAttribute("pageTitle", "Öll námskeið");
+//        model.addAttribute("isAuthenticated", !user.equals("anonymousUser") );
         return "welcome";
     }
 
