@@ -4,7 +4,9 @@ package is.hi.hirslan.security;
         import io.jsonwebtoken.Jwts;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.context.SecurityContextHolder;
+        import org.springframework.security.core.GrantedAuthority;
+        import org.springframework.security.core.authority.SimpleGrantedAuthority;
+        import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 import javax.servlet.FilterChain;
@@ -13,8 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+        import java.util.List;
 
-import static is.hi.hirslan.security.SecurityConstants.HEADER_STRING;
+        import static is.hi.hirslan.security.SecurityConstants.HEADER_STRING;
         import static is.hi.hirslan.security.SecurityConstants.SECRET;
         import static is.hi.hirslan.security.SecurityConstants.TOKEN_PREFIX;
 
@@ -52,6 +55,9 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
                     .getSubject();
 
             if (user != null) {
+//                System.out.println(user);
+//                List<GrantedAuthority> grantedAuths = new ArrayList<GrantedAuthority>();
+//                grantedAuths.add(new SimpleGrantedAuthority("USER"));
                 return new UsernamePasswordAuthenticationToken(user, null, new ArrayList<>());
             }
             return null;
