@@ -1,6 +1,6 @@
 node_modules/
 
-/target/classes/application.properties
+/HIrslan/target/classes/application.properties
 # Created by https://www.gitignore.io/api/java,intellij,eclipse
 
 ### Java ###
