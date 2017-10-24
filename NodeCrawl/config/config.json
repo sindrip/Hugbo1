@@ -1,8 +1,8 @@
 {
   "test": {
-    "DATABASE_URL": "postgres://fylmgviu:yyX5_9E3viuEa1CyBciBltTjVo06CjVs@horton.elephantsql.com:5432/fylmgviu"
+    "DATABASE_URL": "postgres://sjclowll:J2reN0QceK8xqZjV8cIwa5sok3cZDKzR@horton.elephantsql.com:5432/sjclowll"
   },
   "development": {
-    "DATABASE_URL": "postgres://fylmgviu:yyX5_9E3viuEa1CyBciBltTjVo06CjVs@horton.elephantsql.com:5432/fylmgviu"
+    "DATABASE_URL": "postgres://sjclowll:J2reN0QceK8xqZjV8cIwa5sok3cZDKzR@horton.elephantsql.com:5432/sjclowll"
   }
 }

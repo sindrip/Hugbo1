@@ -2,9 +2,11 @@ package is.hi.hirslan.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class ApplicationUser {
+@Table(name = "users")
+public class User {
 
     @Id
     private String username;

@@ -12,7 +12,7 @@ var addCourses = async (courses) => {
   const client = await pool.connect()
   var query = (text, params) => client.query(text, params);
   try {
-    await query('DELETE FROM review where id = id');
+    // await query('DELETE FROM review where id = id');
     await query('DELETE FROM Course where nafn = nafn');
 
     for (let course of courses) {

@@ -1,7 +1,7 @@
 package is.hi.hirslan.RESTController;
 
-import is.hi.hirslan.model.ApplicationUser;
-import is.hi.hirslan.repository.ApplicationUserRepository;
+import is.hi.hirslan.model.User;
+import is.hi.hirslan.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,23 +14,23 @@ import java.util.List;
 @RequestMapping("/api/users")
 public class UserController {
 
-    private ApplicationUserRepository applicationUserRepository;
+    private UserRepository userRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public UserController(ApplicationUserRepository applicationUserRepository,
+    public UserController(UserRepository userRepository,
                           BCryptPasswordEncoder bCryptPasswordEncoder) {
-        this.applicationUserRepository = applicationUserRepository;
+        this.userRepository = userRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     @RequestMapping
-    public List<ApplicationUser> getUsers() {
-        return applicationUserRepository.findAll();
+    public List<User> getUsers() {
+        return userRepository.findAll();
     }
 
     @PostMapping("/signup")
-    public ApplicationUser signUp(@RequestBody ApplicationUser user) {
+    public User signUp(@RequestBody User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        return applicationUserRepository.save(user);
+        return userRepository.save(user);
     }
 }
