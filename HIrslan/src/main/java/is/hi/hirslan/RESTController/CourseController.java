@@ -1,14 +1,15 @@
 package is.hi.hirslan.RESTController;
 
 
-import java.util.ArrayList;
-
 import is.hi.hirslan.model.Course;
 import is.hi.hirslan.services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -53,6 +54,12 @@ public class CourseController {
         ArrayList<Course> listi;
         listi = (ArrayList<Course>) courseService.searchCourse(leit);
         return listi;
+    }
+
+    //GET api/namskeid/:id
+    @RequestMapping(value  = "/{id}")
+    public Course getReviews(@PathVariable("id") String langtNumer) {
+        return courseService.singleCourse(langtNumer);
     }
 
 }

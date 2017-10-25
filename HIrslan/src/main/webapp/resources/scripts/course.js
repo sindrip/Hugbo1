@@ -14,7 +14,7 @@ let init = () => {
 
 let getCourse = () => {
     const urlReview = document.location.origin + '/api/review' + window.location.pathname;
-    const urlCourse = document.location.origin + '/api/review' + window.location.pathname;
+    const urlCourse = document.location.origin + '/api' + window.location.pathname;
 
     $.ajax({
         url: urlReview,
@@ -41,10 +41,27 @@ let getCourse = () => {
         }
     })
 }
+// Builds DOM table from ajax result
+let courseToDom = (course) => {
+    let color = '';
+    if(course.averageRank > 4) color = 'green';
+    else if(course.averageRank > 2) color = 'yellow';
+    else color = 'red';
 
+    const courseDiv =$('#courseInfo');
+
+    const nameDiv = '<h4 class="card-title">' + course.nafn + '</h4>';
+    const numbDiv = '<h6 class="card-subtitle mb-2 text-muted">' + course.numer + '</h6>';
+    const textDiv = '<p class="card-text">Lýsing á námskeiði hér.</p>';
+    const starIco = '<i class="fa fa-star icon" style="color:' + color + ';"></i>' + course.averageRank;
+    const cardBlock = '<div class="card-block">' + nameDiv + numbDiv + textDiv + starIco + '</div>';
+    const card = '<div class="card card-header col-sm-8">' + cardBlock + '</div>';
+
+    courseDiv.html(card);
+}
 // Builds DOM table from ajax result
 let reviewsToDom = (comments) => {
-    const courseDiv = $('#courseComment');
+    const reviewDiv = $('#courseComment');
     let commentDOM = '';
 
     comments.forEach((comment) => {
@@ -62,7 +79,7 @@ let reviewsToDom = (comments) => {
         const widthDiv = '<div class="col-sm-8">' + panel + '</div>';
         commentDOM += '<div class="row comment">' + widthDiv + '</div>';
     });
-    courseDiv.html(commentDOM);
+    reviewDiv.html(commentDOM);
 }
 // Event handlerar
 let bindHandlers = () => {
