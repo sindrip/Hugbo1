@@ -13,21 +13,33 @@ let init = () => {
 };
 
 let getCourse = () => {
-    const url = document.location.origin + '/api/review' + window.location.pathname;
+    const urlReview = document.location.origin + '/api/review' + window.location.pathname;
+    const urlCourse = document.location.origin + '/api/review' + window.location.pathname;
 
     $.ajax({
-            url,
-            type: 'GET',
-            success: (res) => {
+        url: urlReview,
+        type: 'GET',
+        success: (res) => {
             console.log('building comments');
-    console.log(res)
-    course = res;
-    reviewsToDom(res);
-},
-    error: () => {
-        console.log('ajax error');
-    }
-})
+            console.log(res);
+            reviewsToDom(res);
+        },
+        error: () => {
+            console.log('ajax error');
+        }
+    })
+    $.ajax({
+        url: urlCourse,
+        type: 'GET',
+        success: (res) => {
+            console.log('building course');
+            console.log(res)
+            courseToDom(res);
+        },
+        error: () => {
+            console.log('ajax error');
+        }
+    })
 }
 
 // Builds DOM table from ajax result
