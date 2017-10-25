@@ -4,6 +4,7 @@ header {
 .card-header {
     box-shadow: rgba(0, 0, 0, 0.3) 7px 7px 7px 0px;
     margin-top: 20px;
+    background-color: rgba(0,0,0,.2);
 }
 #courseComment {
     margin-bottom: 20px;

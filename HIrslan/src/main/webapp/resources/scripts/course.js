@@ -69,9 +69,12 @@ let reviewsToDom = (comments) => {
     let commentDOM = '';
 
     comments.forEach((comment) => {
-        const authorAnc = '<a href="#"><b>' + comment.author + '</b></a>';
+        const authorValue = comment.author  ? comment.author : 'Óþekktur höfundur';
+        const dateValue = comment.createdOn  ? comment.createdOn : 'Einhvern tímann';
+
+        const authorAnc = '<a href="#"><b>' + authorValue + '</b></a>';
         const authorText = '<div class="title h5">' + authorAnc + ' skrifaði ummæli.</div>';
-        const timeText = '<h6 class="text-muted time">' + comment.createdOn + '</h6>';
+        const timeText = '<h6 class="text-muted time">Skrifað: ' + dateValue + '</h6>';
         const metaDiv = '<div class="pull-left meta">' + authorText + timeText + '</div>';
         const headingDiv = '<div class="post-heading">' + metaDiv + '</div>';
         const mainText = '<p>' + comment.mainText + '</p>';
