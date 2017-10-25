@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <object th:include="fragments/head :: head_bootstrap" th:remove="tag" />
+    </head>
+
+    <body>
+
+    <th:block th:switch="${userRole}">
+        <div th:case="'ANONYMOUS'">
+            <nav th:replace="fragments/navbar :: anonymous_navbar('login')"></nav>
+        </div>
+        <div th:case="'USER'">
+            <nav th:replace="fragments/navbar :: user_navbar('login')"></nav>
+        </div>
+    </th:block>
+
+    <h1>HER THARF AD BAETA INN LOGIN SIDU</h1>
+
+    </body>
+</html>

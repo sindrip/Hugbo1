@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <object th:include="fragments/head :: head_bootstrap" th:remove="tag" />
+
+        <link rel="stylesheet" href="/resources/styles/comments.css"/>
+        <script src="/resources/scripts/course.js"></script>
+    </head>
+
+    <body>
+        <th:block th:switch="${userRole}">
+            <div th:case="'ANONYMOUS'">
+                <nav th:replace="fragments/navbar :: anonymous_navbar(null)"></nav>
+            </div>
+            <div th:case="'USER'">
+                <nav th:replace="fragments/navbar :: user_navbar(null)"></nav>
+            </div>
+        </th:block>
+
+        <main>
+            <div class="container">
+                <div id="courseInfo">
+
+                </div>
+                <div id="courseComment">
+
+                </div>
+
+                <form class="comment-form col-sm-8" method="post" id="reviewForm">
+                    <div class="form-group">
+                        <label for="userEmail">HÍ póstur</label>
+                        <input name="author" form="reviewForm" type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="nemandi@hi.is" pattern="[a-z0-9._%+-]+@hi.is$"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="courseGrade">Einkunn</label>
+                        <select name="rating" form="reviewForm" class="form-control" id="courseGrade">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="reviewText">Ummæli</label>
+                        <textarea name="mainText" form="reviewForm" class="form-control" id="reviewText" rows="3" placeholder="Skildu eftir ummæli um áfangann"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </main>
+
+    </body>
+</html>
