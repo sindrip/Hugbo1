@@ -29,6 +29,14 @@ public class ClientController {
     @Autowired
     ReviewService reviewService;
 
+    private String getRole(Principal principal) {
+        String userRole = "ANONYMOUS";
+        if (principal != null) {
+            userRole = "USER";
+        }
+        return userRole;
+    }
+
     /**
      * Birtir lista af námskeiðum
      *
@@ -37,10 +45,8 @@ public class ClientController {
      */
     // GET /
     @RequestMapping("")
-    public String namskeid(Model model) {
-        String user = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
-        System.out.println(user);
-//        model.addAttribute("isAuthenticated", !user.equals("anonymousUser") );
+    public String namskeid(Model model, Principal principal) {
+        model.addAttribute("userRole", getRole(principal));
         return "courses";
     }
 
@@ -54,24 +60,22 @@ public class ClientController {
      */
     // GET /namskeid/:id
     @RequestMapping(value="namskeid/{id}")
-    public String namskeidId(@PathVariable("id") String langtNumer, Model model) {
+    public String namskeidId(@PathVariable("id") String langtNumer, Principal principal, Model model) {
         model.addAttribute("course", courseService.singleCourse(langtNumer));
         model.addAttribute("review", reviewService.getReviewsForCourse(langtNumer));
+        model.addAttribute("userRole", getRole(principal));
         return "course";
     }
 
     @RequestMapping(value="signup")
-    public String signUp() {
+    public String signUp(Principal principal, Model model) {
+        model.addAttribute("userRole", getRole(principal));
         return "signup";
     }
 
     @RequestMapping(value="login")
     public String signIn(Principal principal, Model model) {
-        String userRole = "ANONYMOUS";
-        if (principal != null) {
-            userRole = "USER";
-        }
-        model.addAttribute("userRole", userRole);
+        model.addAttribute("userRole", getRole(principal));
         return "login";
     }
 

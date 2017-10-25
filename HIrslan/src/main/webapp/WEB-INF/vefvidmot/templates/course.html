@@ -8,7 +8,14 @@
     </head>
 
     <body>
-        <nav th:replace="fragments/navbar :: anonymous_navbar"></nav>
+        <th:block th:switch="${userRole}">
+            <div th:case="'ANONYMOUS'">
+                <nav th:replace="fragments/navbar :: anonymous_navbar"></nav>
+            </div>
+            <div th:case="'USER'">
+                <nav th:replace="fragments/navbar :: user_navbar"></nav>
+            </div>
+        </th:block>
 
         <main>
             <div class="container">
