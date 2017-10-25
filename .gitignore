@@ -107,4 +107,8 @@ local.properties
 
 # TeXlipse plugin
 .texlipse
+<<<<<<< HEAD
 /target/
+=======
+/target/
+>>>>>>> master
