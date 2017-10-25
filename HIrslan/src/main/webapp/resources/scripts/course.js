@@ -41,19 +41,23 @@ let getCourse = () => {
         }
     })
 }
+let getColor = (grade) => {
+    let color = '';
+    if(grade > 4) color = 'green';
+    else if(grade > 2) color = 'yellow';
+    else color = 'red';
+    return color;
+}
 // Builds DOM table from ajax result
 let courseToDom = (course) => {
-    let color = '';
-    if(course.averageRank > 4) color = 'green';
-    else if(course.averageRank > 2) color = 'yellow';
-    else color = 'red';
+
 
     const courseDiv =$('#courseInfo');
 
     const nameDiv = '<h4 class="card-title">' + course.nafn + '</h4>';
     const numbDiv = '<h6 class="card-subtitle mb-2 text-muted">' + course.numer + '</h6>';
     const textDiv = '<p class="card-text">Lýsing á námskeiði hér.</p>';
-    const starIco = '<i class="fa fa-star icon" style="color:' + color + ';"></i>' + course.averageRank;
+    const starIco = '<i class="fa fa-star icon" style="color:' + getColor(course.averageRank) + ';"></i>' + course.averageRank;
     const cardBlock = '<div class="card-block">' + nameDiv + numbDiv + textDiv + starIco + '</div>';
     const card = '<div class="card card-header col-sm-8">' + cardBlock + '</div>';
 
@@ -71,7 +75,7 @@ let reviewsToDom = (comments) => {
         const metaDiv = '<div class="pull-left meta">' + authorText + timeText + '</div>';
         const headingDiv = '<div class="post-heading">' + metaDiv + '</div>';
         const mainText = '<p>' + comment.mainText + '</p>';
-        const starImg = '<i class="fa fa-star icon"></i>' + comment.rating;
+        const starImg = '<i class="fa fa-star icon" style="color:' + getColor(comment.rating) + ';"></i>' + comment.rating;
         const starAnc = '<a href="#" class="btn btn-default stat-item">' + starImg + '</a>';
         const starDiv = '<div class="stats">' + starAnc + '</div>';
         const mainDiv = '<div class="post-description">' + mainText + starDiv + '</div>';
