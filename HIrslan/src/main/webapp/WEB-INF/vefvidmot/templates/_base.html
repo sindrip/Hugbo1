@@ -7,10 +7,10 @@
     <body>
         <th:block th:switch="${userRole}">
             <div th:case="'ANONYMOUS'">
-                <nav th:replace="fragments/navbar :: anonymous_navbar"></nav>
+                <nav th:replace="fragments/navbar :: anonymous_navbar(null)"></nav>
             </div>
             <div th:case="'USER'">
-                <nav th:replace="fragments/navbar :: user_navbar"></nav>
+                <nav th:replace="fragments/navbar :: user_navbar(null)"></nav>
             </div>
         </th:block>
 
