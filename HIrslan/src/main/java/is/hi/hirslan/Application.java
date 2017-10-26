@@ -15,7 +15,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  */
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
-//public class Application {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder applicationBuilder){

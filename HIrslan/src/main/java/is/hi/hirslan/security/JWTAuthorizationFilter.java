@@ -32,13 +32,6 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
             throws IOException, ServletException {
-        Cookie[] cookies = req.getCookies();
-        if (cookies != null) {
-            System.out.println("cookieshere=========");
-            Arrays.stream(cookies)
-                    .forEach(c -> System.out.println(c.getName() + "=" + c.getValue()));
-        }
-
         String token;
         try {
             token = Arrays.stream(req.getCookies())
@@ -55,8 +48,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
             chain.doFilter(req, res);
             return;
         }
-
-        System.out.println("getauth");
+        
         UsernamePasswordAuthenticationToken authentication = getAuthentication(req);
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
