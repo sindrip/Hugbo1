@@ -58,7 +58,10 @@ let courseToDom = (course) => {
     const numbDiv = '<h6 class="card-subtitle mb-2 text-muted">' + course.numer + '</h6>';
     const textDiv = '<p class="card-text">Lýsing á námskeiði hér.</p>';
     const starIco = '<i class="fa fa-star icon" style="color:' + getColor(course.averageRank) + ';"></i>' + course.averageRank.toPrecision(3);
-    const cardBlock = '<div class="card-block">' + nameDiv + numbDiv + textDiv + starIco + '</div>';
+
+    const grade = course.averageRank > 0 ? starIco : '<div><p>Enginn einkunn gefinn.</p></div>';
+
+    const cardBlock = '<div class="card-block">' + nameDiv + numbDiv + textDiv + grade + '</div>';
     const card = '<div class="card card-header col-sm-8">' + cardBlock + '</div>';
 
     courseDiv.html(card);
