@@ -23,6 +23,8 @@ let Signup = (() => {
             if(form.password !== form.passwordConfirm) {
                 $('#passwordError').html('Lykilorð eru ekki eins!')
             } else {
+                // Remove duplicate password if match
+                delete form.passwordConfirm;
                 signupHandler(form);
             }
             return false;
