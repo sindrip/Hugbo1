@@ -21,7 +21,7 @@ let Signup = (() => {
             }
             console.log(form);
             if(form.password !== form.passwordConfirm) {
-
+                $('#passwordError').html('Lykilorð eru ekki eins!')
             } else {
                 signupHandler(form);
             }
