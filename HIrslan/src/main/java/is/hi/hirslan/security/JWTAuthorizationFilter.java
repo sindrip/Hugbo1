@@ -11,10 +11,12 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
+        import javax.servlet.http.Cookie;
+        import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+        import java.util.Arrays;
         import java.util.List;
 
         import static is.hi.hirslan.security.SecurityConstants.HEADER_STRING;
@@ -28,24 +30,46 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
     }
 
     @Override
-    protected void doFilterInternal(HttpServletRequest req,
-                                    HttpServletResponse res,
-                                    FilterChain chain) throws IOException, ServletException {
-        String header = req.getHeader(HEADER_STRING);
+    protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
+            throws IOException, ServletException {
+        Cookie[] cookies = req.getCookies();
+        if (cookies != null) {
+            System.out.println("cookieshere=========");
+            Arrays.stream(cookies)
+                    .forEach(c -> System.out.println(c.getName() + "=" + c.getValue()));
+        }
 
-        if (header == null || !header.startsWith(TOKEN_PREFIX)) {
+        String token;
+        try {
+            token = Arrays.stream(req.getCookies())
+                    .filter(c -> c.getName().equals(HEADER_STRING))
+                    .findFirst()
+                    .map(Cookie::getValue)
+                    .orElse(null);
+         } catch (Exception e) {
             chain.doFilter(req, res);
             return;
         }
 
+        if (token == null || !token.startsWith(TOKEN_PREFIX)) {
+            chain.doFilter(req, res);
+            return;
+        }
+
+        System.out.println("getauth");
         UsernamePasswordAuthenticationToken authentication = getAuthentication(req);
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
         chain.doFilter(req, res);
     }
 
-    private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
-        String token = request.getHeader(HEADER_STRING);
+    private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest req) {
+        String token = Arrays.stream(req.getCookies())
+                .filter(c -> c.getName().equals(HEADER_STRING))
+                .findFirst()
+                .map(Cookie::getValue)
+                .orElse(null);
+
         if (token != null) {
             // parse the token.
             String user;

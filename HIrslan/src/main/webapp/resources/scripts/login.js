@@ -29,13 +29,13 @@ let loginHandler = (val) => {
         url,
         type: 'POST',
         data: JSON.stringify(val),
-        dataType: 'json',
         contentType: 'application/json; charset=utf-8',
-        success: (res) => {
-            console.log(res);
+        success: (res, status, xhr ) => {
+            // console.log(res);
             // location.reload();
         },
-        error: function() {
+        error: function(e) {
+            console.log(e)
             console.log('ohh noooo, ajax error');
             alert('Ekki tókst að skra inn');
         }
