@@ -2,6 +2,8 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
     <head>
         <object th:include="fragments/head :: head_bootstrap" th:remove="tag" />
+
+        <link rel="stylesheet" href="/resources/styles/signup.css"/>
     </head>
 
     <body>
@@ -14,29 +16,102 @@
         </div>
     </th:block>
 
-        <div class="signup" style="display: flex;justify-content: center;align-items: center">
-            <form class="comment-form col-sm-8" method="post" id="reviewForm">
-                <div class="form-group">
-                    <label for="userEmail">HÍ póstur</label>
-                    <input name="author" form="reviewForm" type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="nemandi@hi.is" pattern="[a-z0-9._%+-]+@hi.is$"/>
+    <div class="container">
+        <form class="form-horizontal" role="form" method="POST" action="/register">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <h2>Nýskráning</h2>
+                    <hr/>
                 </div>
-                <div class="form-group">
-                    <label for="courseGrade">Einkunn</label>
-                    <select name="rating" form="reviewForm" class="form-control" id="courseGrade">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
+            </div>
+            <div class="row">
+                <div class="col-md-3 field-label-responsive">
+                    <label for="name">Nafn</label>
                 </div>
-                <div class="form-group">
-                    <label for="reviewText">Ummæli</label>
-                    <textarea name="mainText" form="reviewForm" class="form-control" id="reviewText" rows="3" placeholder="Skildu eftir ummæli um áfangann"></textarea>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                            <input type="text" name="name" class="form-control" id="name"
+                                   placeholder="Ketill Guðmundsson" th:required="required" autofocus="true"/>
+                        </div>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
+                <div class="col-md-3">
+                    <div class="form-control-feedback">
+                        <span class="text-danger align-middle">
+                            <!-- Put name validation error messages here -->
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 field-label-responsive">
+                    <label for="email">Netfang</label>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
+                            <input type="text" name="email" class="form-control" id="email"
+                                   placeholder="keg13@hi.is" th:required="required" autofocus="true"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-control-feedback">
+                        <span class="text-danger align-middle">
+                            <!-- Put e-mail validation error messages here -->
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 field-label-responsive">
+                    <label for="password">Lykilorð</label>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group has-danger">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+                            <input type="password" name="password" class="form-control" id="password"
+                                   placeholder="Hunter2" th:required="required"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-control-feedback">
+                        <span class="text-danger align-middle">
+                            <!--i class="fa fa-close"> Example Error Message</i-->
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 field-label-responsive">
+                    <label for="password">Lykilorð aftur</label>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon" style="width: 2.6rem">
+                                <i class="fa fa-repeat"></i>
+                            </div>
+                            <input type="password" name="password-confirmation" class="form-control"
+                                   id="password-confirm" placeholder="Hunter2" th:required="required"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i> Register</button>
+                </div>
+            </div>
+        </form>
+    </div>
 
     </body>
 </html>
