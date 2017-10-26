@@ -13,18 +13,32 @@ let Signup = (() => {
     let bindHandlers = () => {
         $('#signupForm').on('submit', function(e) {
             e.preventDefault();
-            signupHandler($(this).serialize());
+            const form = {
+                name: $('#name').val(),
+                email: $('#email').val(),
+                password: $('#password').val(),
+                passwordConfirm: $('#password-confirm').val(),
+            }
+            console.log(form);
+            if(form.password !== form.passwordConfirm) {
+
+            } else {
+                signupHandler(form);
+            }
             return false;
         });
     };
 
     // Kallar á bakenda til að leita eftir leitarstreng
     let signupHandler = (val) => {
-        const url = document.location.origin + '/api/signup;
+        const url = document.location.origin + '/api/users/signup';
 
         $.ajax({
             url,
-            type: 'GET',
+            type: 'POST',
+            data: JSON.stringify(val),
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
             success: (res) => {
                 console.log(res);
             },
