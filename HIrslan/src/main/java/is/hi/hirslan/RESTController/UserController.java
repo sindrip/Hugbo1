@@ -30,8 +30,6 @@ public class UserController {
 
     @PostMapping("/signup")
     public User signUp(@RequestBody User user) {
-        System.out.println("========");
-        //System.out.println
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
