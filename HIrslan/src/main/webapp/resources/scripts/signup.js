@@ -24,8 +24,12 @@ let Signup = (() => {
                 $('#passwordError').html('Lykilorð eru ekki eins!')
             } else {
                 // Remove duplicate password if match
-                delete form.passwordConfirm;
-                signupHandler(form);
+                //delete form.passwordConfirm;
+                const user = {
+                    username: form.email,
+                    password: form.password,
+                };
+                signupHandler(user);
             }
             return false;
         });
