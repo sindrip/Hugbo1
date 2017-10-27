@@ -38,7 +38,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .addFilter(new JWTAuthorizationFilter(authenticationManager()))
                 //Logout
                 .logout()
-                    .logoutUrl("api/users/me/logout")
+                    .logoutUrl("/api/users/me/logout")
                     .logoutSuccessUrl("/")
                     .deleteCookies(HEADER_STRING)
                 .and()
