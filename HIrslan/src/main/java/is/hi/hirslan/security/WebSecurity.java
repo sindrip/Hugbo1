@@ -13,6 +13,8 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.context.annotation.Bean;
 
+import static is.hi.hirslan.security.SecurityConstants.HEADER_STRING;
+
 @EnableWebSecurity
 public class WebSecurity extends WebSecurityConfigurerAdapter {
     private UserDetailsService userDetailsService;
@@ -31,8 +33,15 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 //                .anyRequest().authenticated()
                 .anyRequest().permitAll()
                 .and()
+                //Login/auth
                 .addFilter(new JWTAuthenticationFilter(authenticationManager()))
                 .addFilter(new JWTAuthorizationFilter(authenticationManager()))
+                //Logout
+                .logout()
+                    .logoutUrl("api/users/me/logout")
+                    .logoutSuccessUrl("/")
+                    .deleteCookies(HEADER_STRING)
+                .and()
                 // this disables session creation on Spring Security
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }

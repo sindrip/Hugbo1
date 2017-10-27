@@ -80,4 +80,10 @@ public class ClientController {
         return "login";
     }
 
+    @RequestMapping(value="logout")
+    public String logout(Model model) {
+        model.addAttribute("userRole", "ANONYMOUS");
+        return "logout";
+    }
+
 }
