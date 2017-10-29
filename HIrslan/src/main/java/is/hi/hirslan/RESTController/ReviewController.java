@@ -6,6 +6,7 @@ import is.hi.hirslan.services.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 /**
@@ -34,10 +35,12 @@ public class ReviewController {
      */
     // POST api/review/namskeid/:id
     @RequestMapping(value = "namskeid/{id}", method = RequestMethod.POST )
-    public Review saveReview(@PathVariable("id") String langtNumer, @RequestBody       Review review) {
+    public Review saveReview(@PathVariable("id") String langtNumer,
+                             @RequestBody Review review, Principal principal) {
         System.out.println(review);
         Review savedReview;
         review.setCourse(courseService.singleCourse(langtNumer));
+        review.setAuthor(principal.getName());
         savedReview = reviewService.save(review);
         return savedReview;
     }

@@ -32,7 +32,7 @@ let loginHandler = (val) => {
         contentType: 'application/json; charset=utf-8',
         success: (res, status, xhr ) => {
             // console.log(res);
-            // location.reload();
+            window.location = '/';
         },
         error: function(e) {
             console.log(e)

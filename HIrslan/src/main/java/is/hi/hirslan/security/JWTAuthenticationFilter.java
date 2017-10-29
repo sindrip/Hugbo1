@@ -8,7 +8,9 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import sun.java2d.pipe.SpanShapeRenderer;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -16,8 +18,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static is.hi.hirslan.security.SecurityConstants.*;
 
@@ -53,8 +55,14 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                                             FilterChain chain,
                                             Authentication auth) throws IOException, ServletException {
 
+        List<String> authValues = auth.getAuthorities()
+                .stream()
+                .map(a -> a.getAuthority())
+                .collect(Collectors.toList());
+
         String token = Jwts.builder()
                 .setSubject(((org.springframework.security.core.userdetails.User) auth.getPrincipal()).getUsername())
+                .claim(AUTHORITIES_KEY, authValues)
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .signWith(SignatureAlgorithm.HS512, SECRET.getBytes())
                 .compact();

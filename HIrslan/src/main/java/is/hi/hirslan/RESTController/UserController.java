@@ -1,7 +1,9 @@
 package is.hi.hirslan.RESTController;
 
 import is.hi.hirslan.model.User;
+import is.hi.hirslan.model.UserRole;
 import is.hi.hirslan.repository.UserRepository;
+import is.hi.hirslan.repository.UserRoleRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,11 +17,14 @@ import java.util.List;
 public class UserController {
 
     private UserRepository userRepository;
+    private UserRoleRepository userRoleRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public UserController(UserRepository userRepository,
+                          UserRoleRepository userRoleRepository,
                           BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
+        this.userRoleRepository = userRoleRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
@@ -31,6 +36,13 @@ public class UserController {
     @PostMapping("/signup")
     public User signUp(@RequestBody User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        return userRepository.save(user);
+        userRepository.save(user);
+
+        UserRole basicRole = new UserRole();
+        basicRole.setUser(user);
+        basicRole.setRole("USER");
+        userRoleRepository.save(basicRole);
+
+        return user;
     }
 }
