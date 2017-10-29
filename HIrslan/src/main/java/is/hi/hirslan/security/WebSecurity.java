@@ -29,6 +29,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/api/review/namskeid/{id}").hasAnyAuthority("USER", "ADMIN")
+                .antMatchers(HttpMethod.GET, "/api/users").hasAnyAuthority("ADMIN")
 //                .anyRequest().hasAuthority("ADMIN")
                 .anyRequest().permitAll()
                 .and()
