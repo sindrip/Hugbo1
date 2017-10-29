@@ -76,10 +76,10 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
             }
 
             if (user != null) {
-//                System.out.println(user);
-//                List<GrantedAuthority> grantedAuths = new ArrayList<GrantedAuthority>();
-//                grantedAuths.add(new SimpleGrantedAuthority("USER"));
-                return new UsernamePasswordAuthenticationToken(user, null, new ArrayList<>());
+//              System.out.println(user);
+                List<GrantedAuthority> grantedAuths = new ArrayList<GrantedAuthority>();
+                grantedAuths.add(new SimpleGrantedAuthority("USER"));
+                return new UsernamePasswordAuthenticationToken(user, null, grantedAuths);
             }
             return null;
         }
