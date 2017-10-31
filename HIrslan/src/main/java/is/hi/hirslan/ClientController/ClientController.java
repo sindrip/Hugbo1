@@ -62,8 +62,6 @@ public class ClientController {
     // GET /namskeid/:id
     @RequestMapping(value="namskeid/{id}")
     public String namskeidId(@PathVariable("id") String langtNumer, Principal principal, Model model) {
-        model.addAttribute("course", courseService.singleCourse(langtNumer));
-        model.addAttribute("review", reviewService.getReviewsForCourse(langtNumer));
         model.addAttribute("userRole", getRole(principal));
         return "course";
     }

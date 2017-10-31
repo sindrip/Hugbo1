@@ -47,9 +47,13 @@ let Signup = (() => {
             contentType: 'application/json; charset=utf-8',
             success: (res) => {
                 console.log(res);
+                document.location = "/login";
             },
-            error: function() {
+            error: function (xhr, status, error) {
                 console.log('ajax error');
+                console.log(xhr.status);
+                console.log(xhr.responseText);
+                console.log('her', xhr, status, error)
             }
         });
     };
