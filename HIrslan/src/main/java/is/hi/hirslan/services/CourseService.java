@@ -35,4 +35,5 @@ public interface CourseService {
      */
     public List<Course> searchCourse(String val);
 
+    public boolean erALifi();
 }

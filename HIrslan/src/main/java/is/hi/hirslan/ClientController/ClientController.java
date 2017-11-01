@@ -84,4 +84,17 @@ public class ClientController {
         return "logout";
     }
 
+    /**
+     * Dæmi til að sýna prófanir með kalli á service klasa
+     * @param model
+     * @return skilar heima.html ef þjónustan "er á lífi" annars listiKennara
+     */
+    @RequestMapping (value = "/lifir")
+    public String lifir(Model model) {
+        if(courseService.erALifi())
+            return "login";
+        else
+            return "logout";
+    }
+
 }

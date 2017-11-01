@@ -61,4 +61,9 @@ public class CourseServiceImp implements CourseService {
                 )
                 .collect(Collectors.toCollection(ArrayList::new));
     }
+
+    @Override
+    public boolean erALifi() {
+        return true;
+    }
 }
