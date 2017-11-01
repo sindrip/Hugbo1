@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <object th:include="fragments/head :: head_bootstrap" th:remove="tag" />
+    <link rel="stylesheet" href="resources/styles/login.css"/>
+    <script src="resources/scripts/login.js"></script>
+</head>
+
+<body>
+
+<th:block th:switch="${userRole}">
+    <div th:case="'ANONYMOUS'">
+        <nav th:replace="fragments/navbar :: anonymous_navbar('login')"></nav>
+    </div>
+    <div th:case="'USER'">
+        <nav th:replace="fragments/navbar :: user_navbar('login')"></nav>
+    </div>
+</th:block>
+
+<div class="container">
+
+    <form class="form-signin" id="loginForm">
+        <h2 class="form-signin-heading">Innskráning</h2>
+        <label for="inputEmail" class="sr-only">Netfang</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Netfang" required="" autofocus=""/>
+        <label for="inputPassword" class="sr-only">Lykilorð</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Lykilorð" required=""/>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit" id="loginButton">Skrá inn</button>
+    </form>
+
+</div>
+
+
+</body>
+</html>
