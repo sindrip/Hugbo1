@@ -12,7 +12,6 @@ public class User {
     @Id
     @Pattern(regexp="[a-z0-9._%+-]+@hi.is$")
     private String username;
-    @Size(min=6, max=30)
     private String password;
 
     public String getUsername() {
