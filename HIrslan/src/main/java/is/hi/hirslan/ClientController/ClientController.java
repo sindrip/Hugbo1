@@ -3,12 +3,14 @@ package is.hi.hirslan.ClientController;
 import is.hi.hirslan.services.CourseService;
 import is.hi.hirslan.services.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
 
@@ -26,12 +28,38 @@ import java.security.Principal;
  */
 
 @Controller
-public class ClientController {
+public class ClientController implements ErrorController {
 
     @Autowired
     CourseService courseService;
     @Autowired
     ReviewService reviewService;
+
+    private static final String PATH = "/error";
+
+    /**
+     * Birtir villusíðu
+     *
+     * @return vefsíðu með villu
+     */
+    @RequestMapping(value = PATH)
+    public String error(HttpServletRequest request, HttpServletResponse response,
+                        Model model, Principal principal) {
+        // Appropriate HTTP response code (e.g. 404 or 500) is automatically set by Spring.
+        // Here we just define response body.
+        model.addAttribute("userRole", getRole(principal));
+        model.addAttribute("errorStatus", response.getStatus());
+        return "error";
+    }
+
+    /**
+     * Sækja error path
+     * @return error path
+     */
+    @Override
+    public String getErrorPath() {
+        return PATH;
+    }
 
     private String getRole(Principal principal) {
         String userRole = "ANONYMOUS";
