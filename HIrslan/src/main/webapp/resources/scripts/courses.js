@@ -18,7 +18,6 @@ let Namskeid = (() => {
 
     //Fall sem kallar á bindHandlers og getCourse í við ræsingu
     let init = () => {
-        console.log('script loaded');
         bindHandlers();
         getCourse();
     };
@@ -26,27 +25,27 @@ let Namskeid = (() => {
     // Sækir öll course frá APA
     let getCourse = () => {
         const url = document.location.origin + '/api/namskeid';
+        courseToDom([{nafn:'Leita að námskeiðum.',numer:'',langtNumer:'..'}]);
 
         $.ajax({
             url,
             type: 'GET',
             success: (res) => {
-                console.log(res);
                 courseList = res;
-                courseToDom();
+                courseToDom(res);
             },
             error: function() {
-                console.log('ajax error');
+                courseToDom([{nafn:'Næ ekki að tengjast við þjónustu.',numer:'',langtNumer:'..'}]);
             }
         });
     };
 
     // Setur Course úr minni inn í DOMið
-    let courseToDom = () => {
+    let courseToDom = coursesList => {
         const courseTable = $('#courseTable tbody');
 
         let tableHtml = '';
-        courseList.forEach((course) => {
+        coursesList.forEach((course) => {
             const nafn = course.nafn;
             const numer = course.numer;
             const langtNumer = course.langtNumer;
@@ -70,8 +69,6 @@ let Namskeid = (() => {
 
         $("#courseTable tbody").on("click", "tr", function(){
             var clickedRow = $(this);
-            console.log(clickedRow.data('id'))
-
             if (clickedRow.data('id')) {
                 document.location = document.location.origin + '/namskeid/' + clickedRow.data('id');
             }
@@ -86,12 +83,10 @@ let Namskeid = (() => {
             url,
             type: 'GET',
             success: (res) => {
-                console.log(res);
                 courseList = res;
                 courseToDom();
             },
             error: function() {
-                console.log('ajax error');
             }
         });
     };

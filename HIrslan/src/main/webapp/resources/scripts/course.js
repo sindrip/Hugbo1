@@ -26,24 +26,18 @@ let NamskeidReview = (() => {
             url: urlReview,
             type: 'GET',
             success: (res) => {
-                console.log('building comments');
-                console.log(res);
                 reviewsToDom(res);
             },
             error: () => {
-                console.log('ajax error');
             }
         })
         $.ajax({
             url: urlCourse,
             type: 'GET',
             success: (res) => {
-                console.log('building course');
-                console.log(res)
                 courseToDom(res);
             },
             error: () => {
-                console.log('ajax error');
             }
         })
     };
@@ -82,8 +76,7 @@ let NamskeidReview = (() => {
 
         comments.forEach((comment) => {
             const authorValue = comment.author  ? comment.author : 'Óþekktur höfundur';
-            const dateValue = comment.createdOn  ? comment.createdOn : 'Einhvern tímann';
-
+            const dateValue = comment.createdOn  ? new Date(comment.createdOn).toUTCString() : 'Einhvern tímann';
             const authorAnc = '<a href="#"><b>' + authorValue + '</b></a>';
             const authorText = '<div class="title h5">' + authorAnc + ' skrifaði ummæli.</div>';
             const timeText = '<h6 class="text-muted time">Skrifað: ' + dateValue + '</h6>';
@@ -116,9 +109,7 @@ let NamskeidReview = (() => {
 
     // Kallar á bakenda til að leita eftir leitarstreng
     let addReviewHandler = (val) => {
-        console.log(JSON.stringify(val));
         const url = '/api/review' + window.location.pathname;
-        console.log(url);
 
         $.ajax({
             url,
@@ -127,11 +118,9 @@ let NamskeidReview = (() => {
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
             success: (res) => {
-                console.log(res);
                 location.reload();
             },
             error: function() {
-                console.log('ohh noooo, ajax error');
                 alert('Ekki tókst að vista ummæli');
             }
         });

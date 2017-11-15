@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -46,6 +47,7 @@ public class ReviewController {
         Review savedReview;
         review.setCourse(courseService.singleCourse(langtNumer));
         review.setAuthor(principal.getName());
+        review.setCreatedOn(new Date());
         savedReview = reviewService.save(review);
         return savedReview;
     }

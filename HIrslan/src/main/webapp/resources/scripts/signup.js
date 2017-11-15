@@ -19,7 +19,6 @@ let Signup = (() => {
         * @description  Kallar á bindHandler
      */
     let init = () => {
-        console.log('script loaded');
         bindHandlers();
     };
 
@@ -32,12 +31,10 @@ let Signup = (() => {
         $('#signupForm').on('submit', function(e) {
             e.preventDefault();
             const form = {
-                name: $('#name').val(),
                 email: $('#email').val(),
                 password: $('#password').val(),
                 passwordConfirm: $('#password-confirm').val(),
             }
-            console.log(form);
             if(form.password !== form.passwordConfirm) {
                 $('#passwordError').html('Lykilorð eru ekki eins!')
             } else {
@@ -68,14 +65,12 @@ let Signup = (() => {
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
             success: (res) => {
-                console.log(res);
                 document.location = "/login";
             },
             error: function (xhr, status, error) {
-                console.log('ajax error');
-                console.log(xhr.status);
-                console.log(xhr.responseText);
-                console.log('her', xhr, status, error)
+                if(xhr.status === 409){
+                    alert(xhr.responseText);
+                }
             }
         });
     };
