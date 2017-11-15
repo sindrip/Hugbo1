@@ -3,7 +3,7 @@
  * @author Ketill Guðmundsson:email keg13@hi.is,
  * @author Björn Guðmundsson:email bjg49@hi.is
  */
-// Binds the javascript after DOM has loaded
+// Inits the javascript after DOM has loaded
 document.addEventListener('DOMContentLoaded', () => {
     NamskeidReview.init();
 });

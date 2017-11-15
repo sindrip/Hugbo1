@@ -8,6 +8,7 @@
     </head>
 
     <body>
+    <!-- This displays different navbar for logged in and logged out user -->
     <th:block th:switch="${userRole}">
         <div th:case="'ANONYMOUS'">
             <nav th:replace="fragments/navbar :: anonymous_navbar('signup')"></nav>
@@ -17,6 +18,7 @@
         </div>
     </th:block>
 
+    <!-- Sign up form -->
     <div class="container">
         <form class="form-horizontal" role="form" method="POST" id="signupForm">
             <div class="row">

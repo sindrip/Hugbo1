@@ -1,4 +1,6 @@
-/* When screensize is over 769px, change text alignment on signup*/
+/*
+    This css applies to the login page.
+ */
 @media(min-width: 768px) {
     .field-label-responsive {
         padding-top: .5rem;
