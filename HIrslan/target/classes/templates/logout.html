@@ -6,6 +6,8 @@
 </head>
 
 <body>
+<!-- This displays different navbar for logged in and logged out user -->
+
 <th:block th:switch="${userRole}">
     <div th:case="'ANONYMOUS'">
         <nav th:replace="fragments/navbar :: anonymous_navbar(null)"></nav>
@@ -14,7 +16,7 @@
         <nav th:replace="fragments/navbar :: user_navbar(null)"></nav>
     </div>
 </th:block>
-
+<!-- Notifies the user he has been logged out -->
 <h1>Skrái notanda út</h1>
 
 </body>
