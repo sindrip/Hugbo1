@@ -38,11 +38,11 @@ public class UserController {
     //Tilviksbreyta af taginu BCryptPasswordEncoder. Sér um að dulkóða skilaboð.
 
 
-    /*
-        * @description Sækir alla notendur úr gagnagrunni
-        * @param Ekkert
-        * @List<User> Listi af notendum
-     */
+    /**
+     * @description Sækir alla notendur úr gagnagrunni
+     *
+     * @List<User> Listi af notendum
+     **/
     @RequestMapping
     public List<User> getUsers() {
         return userRepository.findAll();

@@ -20,32 +20,32 @@ import java.util.List;
 @Service
 public class ReviewServiceImp implements ReviewService {
 
-    /*
-        Tilviksbreyta af taginu ReviewRepository. Sér um að tala við gagnagrunn
-     */
+    /**
+     * Tilviksbreyta af taginu ReviewRepository. Sér um að tala við gagnagrunn
+     **/
     @Autowired
     ReviewRepository reviewRep;
-    /*
-        * Tilviksbreyta af taginu CourseRepository. Sér um að tala við gagnagrunn.
-     */
+    /**
+     * Tilviksbreyta af taginu CourseRepository. Sér um að tala við gagnagrunn.
+     **/
     @Autowired
     CourseRepository courseRep;
 
-    /*
-        * @description Sækir allar umsagnir fyrir tiltekið námskeið
-        * @param String langtNumer sem hefur samsvarandi áfangi.
-        * @return List<review> Listi yfir allar umsagnir fyrir námskeið
-     */
+    /**
+     * @description Sækir allar umsagnir fyrir tiltekið námskeið
+     * @param String langtNumer sem hefur samsvarandi áfangi.
+     * @return List<review> Listi yfir allar umsagnir fyrir námskeið
+     **/
     @Override
     public List<Review> getReviewsForCourse(String langtNumer) {
         return reviewRep.findByCourse(courseRep.findByLangtNumer(langtNumer));
     }
 
-    /*
-        * @description Setur umsögn inn í gagnagrunn
-        * @param Review. Sú umsögn sem á að setja í gagnagrunn
-        * @return Review. Sú umsögn sem var sett í gagnagrunn
-     */
+    /**
+     * @description Setur umsögn inn í gagnagrunn
+     * @param Review. Sú umsögn sem á að setja í gagnagrunn
+     * @return Review. Sú umsögn sem var sett í gagnagrunn
+     **/
     @Override
     public Review save(Review review) {
         // Get course the review is for

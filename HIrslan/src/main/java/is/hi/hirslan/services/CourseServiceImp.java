@@ -31,12 +31,6 @@ public class CourseServiceImp implements CourseService {
      *
      * @return listi af Courses
      */
-
-    /*
-        * @description Skilar öllum námskeiðum.
-        * @param Nothing
-        * @return List<course>
-     */
     @Override
     public List<Course> allCourse() {
         return courseRep.findAll();
@@ -44,7 +38,7 @@ public class CourseServiceImp implements CourseService {
 
     /**
      * Skilar einu Course úr courseRep eftir langtNumer
-     *  @param LangtNumer fyrir course.
+     * @param langtNumer fyrir course.
      * @return single Course
      */
     @Override

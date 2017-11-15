@@ -14,9 +14,9 @@ import java.util.List;
  */
 
 public interface UserRoleRepository extends JpaRepository<UserRole, Long>{
-    /*
-        * @description Fall sem skilar hlutverki hjá notanda
-        * @param Notandi af taginu user.
-     */
+    /**
+     * @description Fall sem skilar hlutverki hjá notanda
+     * @param Notandi af taginu user.
+     **/
     List<UserRole> findByUser (User user);
 }

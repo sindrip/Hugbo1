@@ -40,7 +40,6 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/api/review/namskeid/{id}").hasAnyAuthority("USER", "ADMIN")
                 .antMatchers(HttpMethod.GET, "/api/users").hasAnyAuthority("ADMIN")
-//                .anyRequest().hasAuthority("ADMIN")
                 .anyRequest().permitAll()
                 .and()
                 //Login/auth

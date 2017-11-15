@@ -14,15 +14,15 @@ import java.util.List;
  * */
 
 public interface UserRepository extends JpaRepository<User, Long> {
-    /*
-       *@description Sækir upplýsingar um notanda úr gagnagrunni
-       *@param notendanafn þess notandi sem verið er að sækja upplýsingar um
-     */
+    /**
+     * @description Sækir upplýsingar um notanda úr gagnagrunni
+     * @param notendanafn þess notandi sem verið er að sækja upplýsingar um
+     **/
     User findByUsername(String username);
 
-    /*
-        *@description Sækir alla notendur úr gagnagrunni
-        *@param Nothing
-     */
+    /**
+     * @description Sækir alla notendur úr gagnagrunni
+     * @param Nothing
+     **/
     List<User> findAll();
 }
