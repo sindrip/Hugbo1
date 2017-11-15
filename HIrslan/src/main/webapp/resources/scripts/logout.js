@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let Login = (() => {
 
         let init = () => {
-        console.log('script loaded');
         logoutHandler();
     }
 
@@ -16,12 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
             type: 'POST',
             contentType: 'application/json; charset=utf-8',
             success: (res, status, xhr ) => {
-                console.log('flott');
                 document.location = "/";
             },
             error: function(e) {
-                console.log(e)
-                console.log('ohh noooo, ajax error');
                 alert('Ekki tókst að skrá út');
             }
         });

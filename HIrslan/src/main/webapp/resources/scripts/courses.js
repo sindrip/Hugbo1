@@ -60,7 +60,6 @@ let Namskeid = (() => {
         $("#courseTable tbody").on("click", "tr", function(){
             var clickedRow = $(this);
             console.log(clickedRow.data('id'))
-
             if (clickedRow.data('id')) {
                 document.location = document.location.origin + '/namskeid/' + clickedRow.data('id');
             }
