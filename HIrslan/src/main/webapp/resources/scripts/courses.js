@@ -7,7 +7,6 @@ let Namskeid = (() => {
     let courseList = {};
 
     let init = () => {
-        console.log('script loaded');
         bindHandlers();
         getCourse();
     };
@@ -20,12 +19,10 @@ let Namskeid = (() => {
             url,
             type: 'GET',
             success: (res) => {
-                console.log(res);
                 courseList = res;
                 courseToDom();
             },
             error: function() {
-                console.log('ajax error');
             }
         });
     };
@@ -59,7 +56,6 @@ let Namskeid = (() => {
 
         $("#courseTable tbody").on("click", "tr", function(){
             var clickedRow = $(this);
-            console.log(clickedRow.data('id'))
             if (clickedRow.data('id')) {
                 document.location = document.location.origin + '/namskeid/' + clickedRow.data('id');
             }
@@ -74,12 +70,10 @@ let Namskeid = (() => {
             url,
             type: 'GET',
             success: (res) => {
-                console.log(res);
                 courseList = res;
                 courseToDom();
             },
             error: function() {
-                console.log('ajax error');
             }
         });
     };
