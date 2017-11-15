@@ -8,7 +8,9 @@
     </head>
 
     <body>
-        <th:block th:switch="${userRole}">
+    <!-- This displays different navbar for logged in and logged out user -->
+
+    <th:block th:switch="${userRole}">
             <div th:case="'ANONYMOUS'">
                 <nav th:replace="fragments/navbar :: anonymous_navbar(null)"></nav>
             </div>
@@ -16,18 +18,18 @@
                 <nav th:replace="fragments/navbar :: user_navbar(null)"></nav>
             </div>
         </th:block>
-
+        <!-- Sign up form -->
         <main>
             <div class="container">
+                <!-- Course info card -->
                 <div id="courseInfo">
 
                 </div>
+                <!-- Course comment list -->
                 <div id="courseComment">
 
                 </div>
-
-
-
+                <!-- Hides submit form if logged out -->
                 <th:block th:switch="${userRole}">
                     <div th:case="'ANONYMOUS'">
                         <div>

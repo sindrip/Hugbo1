@@ -7,7 +7,9 @@
         <script src="resources/scripts/courses.js"></script>
     </head>
     <body>
-        <th:block th:switch="${userRole}">
+    <!-- This displays different navbar for logged in and logged out user -->
+
+    <th:block th:switch="${userRole}">
             <div th:case="'ANONYMOUS'">
                 <nav th:replace="fragments/navbar :: anonymous_navbar(null)"></nav>
             </div>
@@ -15,8 +17,9 @@
                 <nav th:replace="fragments/navbar :: user_navbar(null)"></nav>
             </div>
         </th:block>
-
+        <!-- Main content -->
         <div class="container">
+            <!-- Search bar -->
             <form id="searchCourse" class="form-inline">
                 <div class="form-group">
                     <input type="text" name="leit" class="form-control" aria-describedby="searchCourse" placeholder="Leita"/>
@@ -25,7 +28,7 @@
                     <button type="submit" id="leitaBtn" class="btn btn-default">Leita!</button>
                 </div>
             </form>
-
+            <!-- Course table -->
             <table class="table table-hover" id="courseTable">
                 <thead>
                 <tr>
