@@ -19,7 +19,7 @@ public interface CourseRepository extends JpaRepository<Course, Long> {
      * Nær í öll Course
      * @return listi af Course
      */
-    List<Course> findAll();
+    List<Course> findAllByOrderByNafnAsc();
 
     /**
      * Bætir við Course

@@ -33,7 +33,7 @@ public class CourseServiceImp implements CourseService {
      */
     @Override
     public List<Course> allCourse() {
-        return courseRep.findAll();
+        return courseRep.findAllByOrderByNafnAsc();
     }
 
     /**
