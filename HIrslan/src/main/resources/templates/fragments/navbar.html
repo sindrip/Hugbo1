@@ -7,12 +7,6 @@
 
     <div class="collapse navbar-collapse" id="navbar">
 
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="">Einhver takki! <span class="sr-only">(current)</span></a>
-            </li>
-        </ul>
-
         <ul class="navbar-nav ml-auto">
             <li class="nav-item" th:class="${activeTab == 'login'} ? 'active' : null">
                 <a class="nav-link" href="/login">Innskráning</a>
@@ -33,15 +27,7 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbar">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Flottur takki! <span class="sr-only">(current)</span></a>
-            </li>
-        </ul>
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Mín Síða</a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link" href="/logout">Útskrá</a>
             </li>
