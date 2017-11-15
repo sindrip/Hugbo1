@@ -3,25 +3,30 @@
  * @author Ketill Guðmundsson:email keg13@hi.is,
  * @author Björn Guðmundsson:email bjg49@hi.is
  */
-
+// Binds the javascript after DOM has loaded
 document.addEventListener('DOMContentLoaded', () => {
     NamskeidReview.init();
 });
 
+// Javascript encapsulator
 let NamskeidReview = (() => {
         // Course that was fetched
         let course = {};
-
+    // Inits the encapsulator by binding handlers and fetching initial courses
     let init = () => {
         console.log('script loaded');
         bindHandlers();
         getCourse();
     };
-
+    // Connects to backend endpoint and gets data
     let getCourse = () => {
+        // Endpoint for comments
         const urlReview = document.location.origin + '/api/review' + window.location.pathname;
+        // Endpoint for reviewInfo
         const urlCourse = document.location.origin + '/api' + window.location.pathname;
+        // Displays that info is being fetched while loading
         reviewsToDom([{createdOn: new Date(), author: 'Sæki gögn', mainText: 'Sæki gögn', rating: 5}]);
+        // Endpoint call
         $.ajax({
             url: urlReview,
             type: 'GET',
@@ -31,7 +36,8 @@ let NamskeidReview = (() => {
             error: () => {
             }
         })
-        $.ajax({
+    // Endpoint call
+    $.ajax({
             url: urlCourse,
             type: 'GET',
             success: (res) => {
@@ -41,7 +47,7 @@ let NamskeidReview = (() => {
             }
         })
     };
-
+    // Logic for selecting star color by grade
     let getColor = (grade) => {
         let color = '';
         if(grade > 4) color = 'green';
@@ -53,7 +59,7 @@ let NamskeidReview = (() => {
     // Builds DOM table from ajax result
     let courseToDom = (course) => {
 
-
+        // The element to update
         const courseDiv =$('#courseInfo');
 
         const nameDiv = '<h4 class="card-title">' + course.nafn + '</h4>';
@@ -71,9 +77,11 @@ let NamskeidReview = (() => {
 
     // Builds DOM table from ajax result
     let reviewsToDom = (comments) => {
+        // The element to update
         const reviewDiv = $('#courseComment');
         let commentDOM = '';
 
+        // Builds HTML structure for each comment
         comments.forEach((comment) => {
             const authorValue = comment.author  ? comment.author : 'Óþekktur höfundur';
             const dateValue = comment.createdOn  ? new Date(comment.createdOn).toUTCString() : 'Einhvern tímann';
@@ -94,8 +102,9 @@ let NamskeidReview = (() => {
         reviewDiv.html(commentDOM);
     };
 
-    // Event handlerar
+    // Event handlers bound
     let bindHandlers = () => {
+        // On form submit
         $('#reviewForm').on('submit', function(e) {
             e.preventDefault();
             addReviewHandler({
@@ -125,7 +134,7 @@ let NamskeidReview = (() => {
             }
         });
     };
-
+    // Global function available outside of encapsulation
     return {
         init,
     };
