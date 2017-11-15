@@ -38,6 +38,9 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
         super(authManager);
     }
 
+    /**
+     * Sækja JWT token úr cookie frá requesti
+     */
     @Override
     protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
             throws IOException, ServletException {
@@ -64,6 +67,9 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
         chain.doFilter(req, res);
     }
 
+    /**
+     * Athuga ef JWT token er valid, búa til user í keðjunni ef svo er
+     */
     private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest req) {
         String token = Arrays.stream(req.getCookies())
                 .filter(c -> c.getName().equals(HEADER_STRING))

@@ -31,6 +31,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         this.userRoleRepository = userRoleRepository;
     }
 
+    /**
+     * Finna notanda í gagnagrunni
+     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);

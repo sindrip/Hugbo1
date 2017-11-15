@@ -38,6 +38,9 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         setFilterProcessesUrl("/api/users/login");
     }
 
+    /**
+     * Reynir að skrá notanda inn
+     */
     @Override
     public Authentication attemptAuthentication(HttpServletRequest req, HttpServletResponse res)
             throws AuthenticationException {
@@ -56,6 +59,9 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         }
     }
 
+    /**
+     * Ef skráning tekst búa til token og setja cookie í response serverlet
+     */
     @Override
     protected void successfulAuthentication(HttpServletRequest req,
                                             HttpServletResponse res,

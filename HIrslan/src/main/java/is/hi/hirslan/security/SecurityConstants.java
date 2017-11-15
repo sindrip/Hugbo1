@@ -7,6 +7,9 @@ package is.hi.hirslan.security;
  * @date October 2017
  */
 
+/**
+ * Constantar sem að notaðir eru fyrir JWT token
+ */
 public class SecurityConstants {
     public static final String SECRET = "SecretKeyToGenJWTs";
     public static final long EXPIRATION_TIME = 864_000_000; // 10 days
