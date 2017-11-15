@@ -32,7 +32,6 @@ let Namskeid = (() => {
             type: 'GET',
             success: (res) => {
                 courseList = res;
-                console.log(courseList)
                 courseToDom(res);
             },
             error: function() {
@@ -44,7 +43,6 @@ let Namskeid = (() => {
     // Setur Course úr minni inn í DOMið
     let courseToDom = (coursesList) => {
         const courseTable = $('#courseTable tbody');
-        console.log(coursesList)
         let tableHtml = '';
         coursesList.forEach((course) => {
             const nafn = course.nafn;
