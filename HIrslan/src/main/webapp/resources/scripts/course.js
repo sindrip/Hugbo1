@@ -21,7 +21,7 @@ let NamskeidReview = (() => {
     let getCourse = () => {
         const urlReview = document.location.origin + '/api/review' + window.location.pathname;
         const urlCourse = document.location.origin + '/api' + window.location.pathname;
-
+        reviewsToDom([{createdOn: new Date(), author: 'Sæki gögn', mainText: 'Sæki gögn', rating: 5}]);
         $.ajax({
             url: urlReview,
             type: 'GET',
@@ -58,9 +58,9 @@ let NamskeidReview = (() => {
 
         const nameDiv = '<h4 class="card-title">' + course.nafn + '</h4>';
         const numbDiv = '<h6 class="card-subtitle mb-2 text-muted">' + course.numer + '</h6>';
-        const textDiv = '<p class="card-text">Lýsing á námskeiði hér.</p>';
+        let textDiv = '<p class="card-text">Lýsing á námskeiði hér.</p>';
         const starIco = '<i class="fa fa-star icon" style="color:' + getColor(course.averageRank) + ';"></i>' + course.averageRank.toPrecision(3);
-
+        textDiv = '';
         const grade = course.averageRank > 0 ? starIco : '<div><p>Enginn einkunn gefinn.</p></div>';
 
         const cardBlock = '<div class="card-block">' + nameDiv + numbDiv + textDiv + grade + '</div>';
