@@ -97,18 +97,38 @@ public class ClientController implements ErrorController {
         return "course";
     }
 
+    /**
+     * Leyfir notanda að búa til nýjan aðgang
+     *
+     * @param model módel fyrir samskipti við viðmót.
+     * @param principal notandi sem er skráður inn
+     * @return vefsíða fyrir nýskráningu
+     */
     @RequestMapping(value="signup")
     public String signUp(Principal principal, Model model) {
         model.addAttribute("userRole", getRole(principal));
         return "signup";
     }
 
+    /**
+     * Leyfir notanda að skrá sig inn
+     *
+     * @param model módel fyrir samskipti við viðmót.
+     * @param principal notandi sem er skráður inn
+     * @return vefsíða fyrir innskráningu
+     */
     @RequestMapping(value="login")
     public String signIn(Principal principal, Model model) {
         model.addAttribute("userRole", getRole(principal));
         return "login";
     }
 
+    /**
+     * Leyfir notanda að skrá sig út
+     *
+     * @param model módel fyrir samskipti við viðmót.
+     * @return vefsíða sem skráir notanda út sjálfkrafa
+     */
     @RequestMapping(value="logout")
     public String logout(Model model) {
         model.addAttribute("userRole", "ANONYMOUS");

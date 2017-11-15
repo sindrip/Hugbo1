@@ -48,6 +48,11 @@ public class UserController {
         return userRepository.findAll();
     }
 
+    /**
+     * Býr til nýjan notanda ef nafnið er ekki nú þegar til
+     *
+     * @return notandanafnið sem var skráð, annars villu status
+     **/
     @PostMapping("/signup")
     public String signUp(@RequestBody User user,
                                  HttpServletResponse response) {

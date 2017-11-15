@@ -35,9 +35,9 @@ public class ReviewController {
 
 
     /**
-     * Bi
+     * Vistar review fyrir námskeið úr id í URLi
      *
-     * @return
+     * @return listi JSON listi reviews fyrir námskeið
      */
     // POST api/review/namskeid/:id
     @RequestMapping(value = "namskeid/{id}", method = RequestMethod.POST )
@@ -52,6 +52,12 @@ public class ReviewController {
         return savedReview;
     }
 
+    /**
+     * Birtir lista af námskeiðum
+     *
+     * @return listi JSON listi námskeið þar sem leitarstrengurinn
+     *         er innihaldinn í einhverjum field í módelinu
+     */
     //GET api/review/namskeid/:id
     @RequestMapping(value  = "namskeid/{id}")
     public List<Review> getReviews(@PathVariable("id") String langtNumer) {
