@@ -5,7 +5,10 @@ import java.util.Date;
 
 /**
  *
- * @author Sindri Pétur Ingimundarson, Ketill Guðmundsson, Björn Guðmundsson, Ævar Aðalsteinsson
+ /**
+ * @author Sindri Pétur Ingimundarso:email spi4@hi.is,
+ * @author Ketill Guðmundsson:email keg13@hi.is,
+ * @author Björn Guðmundsson:email bjg49@hi.is
  * @date september 2017 HBV501G Hugbúnaðarverkefni 1 Háskóli Íslands
  *
  * Review klasinn inniheldur, nafn, námskeiðsnúmer og langt námskeiðsnúmer
@@ -16,13 +19,19 @@ public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    //Auto incremented tala sem er primary key fyrir hverja umsögn
     @ManyToOne
     @JoinColumn(name="course", referencedColumnName="langtNumer")
     private Course course;
+    //Heldur utan um áfangann sem viðkomandi umsögn tilheyrir
     private Integer rating;
+    //Meðaleinkunn frá öllum umsögnum um áfangann
     private String author;
+    //Hver skrifaði umsögnina
     private Date createdOn;
+    //Hvenær umsögnin var skrifuð
     private String mainText;
+    //Meginatriði í umsögninni. Það er textinn á bakvið umsögnina
 
     public Course getCourse() {
         return course;

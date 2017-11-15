@@ -12,19 +12,37 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
+/**
+ * @author Sindri Pétur Ingimundarso:email spi4@hi.is,
+ * @author Ketill Guðmundsson:email keg13@hi.is,
+ * @author Björn Guðmundsson:email bjg49@hi.is
+ * @date Október 2017
+ * @description Controller fyrir usera.
+ */
+
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
 
     @Autowired
     private UserService userService;
+    //Tilviksbreyta af taginu UserService. Sér um tengingu við repository
     @Autowired
     private UserRepository userRepository;
+    //Tilviksbreyta af taginu UserRepository. Sér um tenginu við gagnagrunn
     @Autowired
     private UserRoleRepository userRoleRepository;
+    //TIlviksbreyta af taginu UserRoleRepository. Sér um tengingu við gagnagrunn
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+    //Tilviksbreyta af taginu BCryptPasswordEncoder. Sér um að dulkóða skilaboð.
 
+
+    /*
+        * @description Sækir alla notendur úr gagnagrunni
+        * @param Ekkert
+        * @List<User> Listi af notendum
+     */
     @RequestMapping
     public List<User> getUsers() {
         return userRepository.findAll();

@@ -1,7 +1,7 @@
 package is.hi.hirslan.security;
 
 
-        import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Claims;
         import io.jsonwebtoken.Jwts;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,6 +24,13 @@ import java.util.ArrayList;
         import java.util.stream.Collectors;
 
         import static is.hi.hirslan.security.SecurityConstants.*;
+
+/**
+ * @author Sindri Pétur Ingimundarso:email spi4@hi.is,
+ * @author Ketill Guðmundsson:email keg13@hi.is,
+ * @author Björn Guðmundsson:email bjg49@hi.is
+ * @date October 2017
+ */
 
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 

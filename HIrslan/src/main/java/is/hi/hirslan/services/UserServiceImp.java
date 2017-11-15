@@ -9,12 +9,28 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * @author Sindri Pétur Ingimundarso:email spi4@hi.is,
+ * @author Ketill Guðmundsson:email keg13@hi.is,
+ * @author Björn Guðmundsson:email bjg49@hi.is
+ * @date Október 2017
+ */
+
 @Service
 public class UserServiceImp implements UserService {
+    /*
+        * @description Tilviksbreyta af taginu UserRepository. Repository fyrir notendur
+     */
     @Autowired
     UserRepository userRepository;
+    /*
+        * @description Tilviksbreyta af taginu UserRoleRepository. Repository fyrir hlutverk notenda.
+     */
     @Autowired
     UserRoleRepository userRoleRepository;
+    /*
+        * @description Tilviksbreyta af taginu BCryptPasswordEncoder. Sér um að dulkóða lykilorð.
+     */
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
 

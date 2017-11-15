@@ -1,15 +1,37 @@
+/**
+ * @author Sindri Pétur Ingimundarso:email spi4@hi.is,
+ * @author Ketill Guðmundsson:email keg13@hi.is,
+ * @author Björn Guðmundsson:email bjg49@hi.is
+ * @date Október 2017
+ */
+
+
+/*
+    * @description Þegar síðan hleðst inn þá kallar það á init fallið í Login.
+ */
 document.addEventListener('DOMContentLoaded', () => {
     Login.init();
 });
 
+
+/*
+    * @description Object sér um að upphafsstilingu síðunnar
+ */
 let Login = (() => {
 
+    /*
+        * Kallar á bindHandlers fallið
+     */
     let init = () => {
         console.log('script loaded');
         bindHandlers();
     }
 
-    // Event handlerar
+    /*
+        * @description Setur event handlerá öll elements með loginForm Id
+        * @param ekkert
+        * @return ekkert
+     */
 let bindHandlers = () => {
     $('#loginForm').on('submit', function(e) {
         console.log('am button')
@@ -22,6 +44,12 @@ let bindHandlers = () => {
     });
 };
 
+
+/*
+    * @description Sendir skilaboð til bakendans.
+    * @param val login strengur
+    * @return Skilar engur
+ */
 let loginHandler = (val) => {
     const url = document.location.origin + '/api/users/login';
     console.log(val);

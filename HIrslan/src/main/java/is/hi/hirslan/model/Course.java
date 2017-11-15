@@ -8,7 +8,10 @@ import javax.persistence.Id;
 
 /**
  *
- * @author Sindri Pétur Ingimundarson, Ketill Guðmundsson, Björn Guðmundsson, Ævar Aðalsteinsson
+ * /**
+ * @author Sindri Pétur Ingimundarso:email spi4@hi.is,
+ * @author Ketill Guðmundsson:email keg13@hi.is,
+ * @author Björn Guðmundsson:email bjg49@hi.is
  * @date september 2017 HBV501G Hugbúnaðarverkefni 1 Háskóli Íslands
  *
  * Course klasinn inniheldur, nafn, námskeiðsnúmer og langt námskeiðsnúmer
@@ -18,12 +21,15 @@ public class Course {
 
     @Id
     private String langtNumer;
+    //langtNumer er primary key fyrir áfanga. Hver áfangi hefur sitt eigið langt númer
     private String numer;
+    //Stytting á langt númer.
     private String nafn;
+    //Nafnið á áfanganum
     private double einingar;
-    private String kennslumisseri;
-    private String namsstig;
+    //Segir til um hversu margar ECTS einingar viðkomandi áfangi samsvarar
     private String url;
+    //Hlekkur á síðu áfangans í kennsluskrá
     @ColumnDefault("'-1.0'")
     @Column(name = "averageRank")
     private double averageRank = -1.0;
@@ -68,21 +74,6 @@ public class Course {
         this.einingar = einingar;
     }
 
-    public String getKennslumisseri() {
-        return kennslumisseri;
-    }
-
-    public void setKennslumisseri(String kennslumisseri) {
-        this.kennslumisseri = kennslumisseri;
-    }
-
-    public String getNamsstig() {
-        return namsstig;
-    }
-
-    public void setNamsstig(String namsstig) {
-        this.namsstig = namsstig;
-    }
 
     public String getUrl() {
         return url;

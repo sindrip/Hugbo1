@@ -1,3 +1,13 @@
+/**
+ * @author Sindri Pétur Ingimundarso:email spi4@hi.is,
+ * @author Ketill Guðmundsson:email keg13@hi.is,
+ * @author Björn Guðmundsson:email bjg49@hi.is
+ */
+
+
+/*
+    Kallar á init fallið í hlutnum Namskeid þegar síðan hleðst. Init fallið hefur upphafsstillinu siðunnar
+ */
 document.addEventListener('DOMContentLoaded', () => {
     Namskeid.init();
 });
@@ -6,6 +16,7 @@ let Namskeid = (() => {
     // Listi af Course geymdur í minni
     let courseList = {};
 
+    //Fall sem kallar á bindHandlers og getCourse í við ræsingu
     let init = () => {
         console.log('script loaded');
         bindHandlers();
@@ -49,7 +60,7 @@ let Namskeid = (() => {
         courseTable.html(tableHtml);
     };
 
-    // Event handlerar
+    // Event handlerar. Setur event handler á dom elements
     let bindHandlers = () => {
         $('#searchCourse').on('submit', function(e) {
             e.preventDefault();
