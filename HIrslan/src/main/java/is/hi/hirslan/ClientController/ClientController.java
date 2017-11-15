@@ -15,7 +15,10 @@ import java.security.Principal;
 
 /**
  *
- * @author Sindri Pétur Ingimundarson, Ketill Guðmundsson, Björn Guðmundsson, Ævar Aðalsteinsson
+ /**
+ * @author Sindri Pétur Ingimundarso:email spi4@hi.is,
+ * @author Ketill Guðmundsson:email keg13@hi.is,
+ * @author Björn Guðmundsson:email bjg49@hi.is
  * @date september 2017 HBV501G Hugbúnaðarverkefni 1 Háskóli Íslands
  *
  * Tekur við skipunum frá vefviðmóti til að birta lista af námskeiðum eða

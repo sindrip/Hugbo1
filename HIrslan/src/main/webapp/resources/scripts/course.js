@@ -1,3 +1,9 @@
+/**
+ * @author Sindri Pétur Ingimundarso:email spi4@hi.is,
+ * @author Ketill Guðmundsson:email keg13@hi.is,
+ * @author Björn Guðmundsson:email bjg49@hi.is
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
     NamskeidReview.init();
 });

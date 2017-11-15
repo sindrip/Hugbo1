@@ -1,15 +1,33 @@
+/**
+ * @author Sindri Pétur Ingimundarso:email spi4@hi.is,
+ * @author Ketill Guðmundsson:email keg13@hi.is,
+ * @author Björn Guðmundsson:email bjg49@hi.is
+ * @date Október 2017
+ */
+
+
+/*
+    * @description Bindur kallar á init fallið í Signup objectinum
+ */
 document.addEventListener('DOMContentLoaded', () => {
     Signup.init();
 });
 
 let Signup = (() => {
 
+    /*
+        * @description  Kallar á bindHandler
+     */
     let init = () => {
         console.log('script loaded');
         bindHandlers();
     };
 
-    // Event handlerar
+    /* @description Bindur handera á elements
+        @param Ekkert
+        return Ekkert
+     */
+
     let bindHandlers = () => {
         $('#signupForm').on('submit', function(e) {
             e.preventDefault();
@@ -35,7 +53,11 @@ let Signup = (() => {
         });
     };
 
-    // Kallar á bakenda til að leita eftir leitarstreng
+    /*
+        * @description Sendir Gögn um nýskráningu á bakenda
+        * @param nýskráningar object
+        * @return ekkert
+     */
     let signupHandler = (val) => {
         const url = document.location.origin + '/api/users/signup';
 

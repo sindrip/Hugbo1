@@ -10,8 +10,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @author Sindri Pétur Ingimundarson, Ketill Guðmundsson, Björn Guðmundsson, Ævar Aðalsteinsson
+ * @author Sindri Pétur Ingimundarso:email spi4@hi.is,
+ * @author Ketill Guðmundsson:email keg13@hi.is,
+ * @author Björn Guðmundsson:email bjg49@hi.is
  * @date september 2017 HBV501G Hugbúnaðarverkefni 1 Háskóli Íslands
+ * @description Service klasi fyrir CourseRepository.
  */
 
 @Service
@@ -28,6 +31,12 @@ public class CourseServiceImp implements CourseService {
      *
      * @return listi af Courses
      */
+
+    /*
+        * @description Skilar öllum námskeiðum.
+        * @param Nothing
+        * @return List<course>
+     */
     @Override
     public List<Course> allCourse() {
         return courseRep.findAll();
@@ -35,7 +44,7 @@ public class CourseServiceImp implements CourseService {
 
     /**
      * Skilar einu Course úr courseRep eftir langtNumer
-     *
+     *  @param LangtNumer fyrir course.
      * @return single Course
      */
     @Override
@@ -48,6 +57,12 @@ public class CourseServiceImp implements CourseService {
      *
      * @return listi af Courses
      */
+
+    /*
+        @description Leitar að námskeiðum eftir leitarstreng
+        @param Strengur til að leita.
+        @return List<Course> Listi af öllum áföngum sem leitarstrengurinn á við um.
+     */
     @Override
     public List<Course> searchCourse(String val) {
         List<Course> listi = this.courseRep.findAll();
@@ -56,8 +71,6 @@ public class CourseServiceImp implements CourseService {
                 .filter(c -> c.getLangtNumer().toLowerCase().contains(val.toLowerCase())
                         || c.getNumer().toLowerCase().contains(val.toLowerCase())
                         || c.getNafn().toLowerCase().contains(val.toLowerCase())
-                        || c.getKennslumisseri().toLowerCase().contains(val.toLowerCase())
-                        || c.getNamsstig().toLowerCase().contains(val.toLowerCase())
                 )
                 .collect(Collectors.toCollection(ArrayList::new));
     }

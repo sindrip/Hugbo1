@@ -29,7 +29,10 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.ResultActions;
 
 /**
- * @author Sindri Pétur Ingimundarson, Ketill Guðmundsson, Björn Guðmundsson, Ævar Aðalsteinsson
+ /**
+ * @author Sindri Pétur Ingimundarso:email spi4@hi.is,
+ * @author Ketill Guðmundsson:email keg13@hi.is,
+ * @author Björn Guðmundsson:email bjg49@hi.is
  * @date október 2017 HBV501G Hugbúnaðarverkefni 1 Háskóli Íslands
  *
  * Prófunarklasi sem framkvæmir prófanir á weblayer og notar WebMvcTest og

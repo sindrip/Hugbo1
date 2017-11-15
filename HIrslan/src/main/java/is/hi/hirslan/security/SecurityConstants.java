@@ -1,5 +1,12 @@
 package is.hi.hirslan.security;
 
+/**
+ * @author Sindri Pétur Ingimundarso:email spi4@hi.is,
+ * @author Ketill Guðmundsson:email keg13@hi.is,
+ * @author Björn Guðmundsson:email bjg49@hi.
+ * @date October 2017
+ */
+
 public class SecurityConstants {
     public static final String SECRET = "SecretKeyToGenJWTs";
     public static final long EXPIRATION_TIME = 864_000_000; // 10 days

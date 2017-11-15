@@ -14,6 +14,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * @author Sindri Pétur Ingimundarso:email spi4@hi.is,
+ * @author Ketill Guðmundsson:email keg13@hi.is,
+ * @author Björn Guðmundsson:email bjg49@hi.is
+ * @date October 2017
+ */
+
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
     private UserRepository userRepository;

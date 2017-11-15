@@ -23,6 +23,13 @@ import java.util.stream.Collectors;
 
 import static is.hi.hirslan.security.SecurityConstants.*;
 
+/**
+ * @author Sindri Pétur Ingimundarso:email spi2@hi.is,
+ * @author Ketill Guðmundsson:email keg13@hi.is,
+ * @author Björn Guðmundsson:email bjg49@hi.is
+ * @date October 2017
+ */
+
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private AuthenticationManager authenticationManager;
 

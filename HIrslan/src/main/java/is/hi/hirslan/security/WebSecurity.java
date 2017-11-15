@@ -15,6 +15,13 @@ import org.springframework.context.annotation.Bean;
 
 import static is.hi.hirslan.security.SecurityConstants.HEADER_STRING;
 
+/**
+ * @author Sindri Pétur Ingimundarso:email spi4@hi.is,
+ * @author Ketill Guðmundsson:email keg13@hi.is,
+ * @author Björn Guðmundsson:email bjg49@hi.is
+ * @date October 2017
+ */
+
 @EnableWebSecurity
 public class WebSecurity extends WebSecurityConfigurerAdapter {
     private UserDetailsService userDetailsService;
