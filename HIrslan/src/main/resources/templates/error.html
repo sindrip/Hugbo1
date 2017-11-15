@@ -2,12 +2,9 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <object th:include="fragments/head :: head_bootstrap" th:remove="tag" />
-    <script src="resources/scripts/logout.js"></script>
 </head>
 
 <body>
-<!-- This displays different navbar for logged in and logged out user -->
-
 <th:block th:switch="${userRole}">
     <div th:case="'ANONYMOUS'">
         <nav th:replace="fragments/navbar :: anonymous_navbar(null)"></nav>
@@ -16,8 +13,12 @@
         <nav th:replace="fragments/navbar :: user_navbar(null)"></nav>
     </div>
 </th:block>
-<!-- Notifies the user he has been logged out -->
-<h1>Skrái notanda út</h1>
+
+    <h1>VILLA KOM UPP :(</h1>
+    <h2 th:text="${errorStatus}"></h2>
+    <a href="/">Til baka á forsíðu :)</a>
+
+
 
 </body>
 </html>
