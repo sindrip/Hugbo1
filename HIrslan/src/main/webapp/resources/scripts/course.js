@@ -70,8 +70,7 @@ let NamskeidReview = (() => {
 
         comments.forEach((comment) => {
             const authorValue = comment.author  ? comment.author : 'Óþekktur höfundur';
-            const dateValue = comment.createdOn  ? comment.createdOn : 'Einhvern tímann';
-
+            const dateValue = comment.createdOn  ? new Date(comment.createdOn).toUTCString() : 'Einhvern tímann';
             const authorAnc = '<a href="#"><b>' + authorValue + '</b></a>';
             const authorText = '<div class="title h5">' + authorAnc + ' skrifaði ummæli.</div>';
             const timeText = '<h6 class="text-muted time">Skrifað: ' + dateValue + '</h6>';

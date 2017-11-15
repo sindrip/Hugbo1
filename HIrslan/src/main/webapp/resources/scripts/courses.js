@@ -14,25 +14,27 @@ let Namskeid = (() => {
     // Sækir öll course frá APA
     let getCourse = () => {
         const url = document.location.origin + '/api/namskeid';
+        courseToDom([{nafn:'Leita að námskeiðum.',numer:'',langtNumer:'..'}]);
 
         $.ajax({
             url,
             type: 'GET',
             success: (res) => {
                 courseList = res;
-                courseToDom();
+                courseToDom(res);
             },
             error: function() {
+                courseToDom([{nafn:'Næ ekki að tengjast við þjónustu.',numer:'',langtNumer:'..'}]);
             }
         });
     };
 
     // Setur Course úr minni inn í DOMið
-    let courseToDom = () => {
+    let courseToDom = coursesList => {
         const courseTable = $('#courseTable tbody');
 
         let tableHtml = '';
-        courseList.forEach((course) => {
+        coursesList.forEach((course) => {
             const nafn = course.nafn;
             const numer = course.numer;
             const langtNumer = course.langtNumer;
