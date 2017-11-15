@@ -60,6 +60,11 @@ public class CourseController {
         return listi;
     }
 
+    /**
+     * Skilar einu námskeiði sem samsvarar id
+     *
+     * @return listi JSON listi eins námskeiðs
+     */
     //GET api/namskeid/:id
     @RequestMapping(value  = "/{id}")
     public Course getReviews(@PathVariable("id") String langtNumer) {
